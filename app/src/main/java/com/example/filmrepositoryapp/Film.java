@@ -1,32 +1,17 @@
 package com.example.filmrepositoryapp;
 
-import java.util.List;
+import java.util.Date;
 
-public class Film implements FilmRepository {
-    @Override
-    public Object getItem(long id) {
-        return null;
-    }
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
-    @Override
-    public List getAll() {
-        return null;
-    }
+public class Film extends RealmObject {
+    @PrimaryKey
+    private int id;
+    private String film_name;//название фильма
+    private String directors_name; //имя режиссера
+    private Date release_date;//дата выхода фильма
+    private int rating;//рейтинг фильма
 
-    @Override
-    public long insertItem(Object o) {
-        return 0;
-    }
 
-    @Override
-    public boolean deleteItem(long id) {
-        return false;
-    }
-
-    @Override
-    public void updateItem(Object o) {
-
-    }
 }
-//TODO поля названия,года выхода фильма.режиссера,топ фильмов по рейтингу
-//TODO наполнение БД

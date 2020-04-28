@@ -2,15 +2,31 @@ package com.example.filmrepositoryapp;
 
 import java.util.List;
 
-public interface FilmRepository<Film> {
-    Film getItem(long id);
+public class FilmRepository implements FRepository {
+    @Override
+    public Object getItem(long id) {
+        return null;
+    }
 
-    List<Film> getAll();
+    @Override
+    public List getAll() {
+        return null;
+    }
 
-    long insertItem(Film film);
+    @Override
+    public long insertItem(Object o) {
+        return 0;
+    }
 
-    boolean deleteItem(long id);
+    @Override
+    public boolean deleteItem(long id) {
+        return false;
+    }
 
-    void updateItem(Film film);
+    @Override
+    public void updateItem(Object o) {
 
+    }
 }
+//TODO поля названия,года выхода фильма.режиссера,топ фильмов по рейтингу
+//TODO наполнение БД
