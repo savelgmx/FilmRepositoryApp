@@ -1,22 +1,44 @@
 package com.example.filmrepositoryapp;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
-public class FilmRepository implements FRepository {
-    @Override
-    public Object getItem(long id) {
-        return null;
+import io.realm.Realm;
+
+public class FilmRepository implements FRepository<Film> {
+
+    private Realm mRealm;
+    private static AtomicLong sPrimaryId;
+
+    public FilmRepository(){
+        mRealm = Realm.getDefaultInstance();
+        Number max = mRealm.where(Film.class).max("id");
+        sPrimaryId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
+
+    }
+
+
+    private Film getRealmAssosiatedFilm(long id) {
+        return mRealm.where(Film.class).equalTo("id",id).findFirst();
     }
 
     @Override
-    public List getAll() {
-        return null;
+    public Film getItem(long id) {
+        Film film = getRealmAssosiatedFilm(id);
+        return film != null?mRealm.copyFromRealm(film) :null;
+
     }
 
     @Override
-    public long insertItem(Object o) {
+    public List<Film> getAll() {
+        return mRealm.where(Film.class).findAll();
+    }
+
+    @Override
+    public long insertItem(Film film) {
         return 0;
     }
+
 
     @Override
     public boolean deleteItem(long id) {
@@ -24,9 +46,9 @@ public class FilmRepository implements FRepository {
     }
 
     @Override
-    public void updateItem(Object o) {
+    public void updateItem(Film film) {
 
     }
+
 }
-//TODO поля названия,года выхода фильма.режиссера,топ фильмов по рейтингу
 //TODO наполнение БД
