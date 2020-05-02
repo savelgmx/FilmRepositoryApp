@@ -34,21 +34,51 @@ public class FilmRepository implements FRepository<Film> {
         return mRealm.where(Film.class).findAll();
     }
 
+    private Film getRealmAssociatedFilm(long id) {
+        return mRealm.where(Film.class).equalTo("id", id).findFirst();
+    }
+
     @Override
     public long insertItem(Film film) {
-        return 0;
+        film.setId(sPrimaryId.incrementAndGet());
+        mRealm.beginTransaction();
+        mRealm.copyToRealm(film);
+        mRealm.commitTransaction();
+        return sPrimaryId.longValue();
     }
 
 
     @Override
     public boolean deleteItem(long id) {
-        return false;
+        boolean isDeleteSuccessful;
+        mRealm.beginTransaction();
+        Film film = getRealmAssociatedFilm(id);
+
+        if (film != null) {
+            film.deleteFromRealm();
+            isDeleteSuccessful = true;
+        } else {
+            isDeleteSuccessful = false;
+        }
+        mRealm.commitTransaction();
+        return isDeleteSuccessful;
     }
+
 
     @Override
     public void updateItem(Film film) {
+        mRealm.beginTransaction();
+        mRealm.copyToRealmOrUpdate(film);
+        mRealm.commitTransaction();
+    }
 
+/*
+    Добавьте возможность поиска по диапазону года выхода фильма, метод List<Film> searchInBounds(int startYear, int endYear);
+    Добавьте возможность поиска фильмов определенного режиссера, методList<Film> searchByDirector(String name). Имя может быть указано не полностью, минимум 4 символа, только в начале слова.
+    Добавьте возможность получить топ фильмов по рейтингу (double поле)List<Film> getTopFilms(int count)
+*/
+    public List<Film> searchInBounds(int startYear,int endYear){
+        return mRealm.where(Film.class).between("relaese_date",startYear,endYear).findAll();
     }
 
 }
-//TODO наполнение БД

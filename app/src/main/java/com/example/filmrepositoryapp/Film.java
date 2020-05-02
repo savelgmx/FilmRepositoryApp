@@ -7,16 +7,16 @@ import io.realm.annotations.PrimaryKey;
 
 public class Film extends RealmObject {
     @PrimaryKey
-    private int id;
+    private long id;
     private String film_name;//название фильма
     private String directors_name; //имя режиссера
     private Date release_date;//дата выхода фильма
     private int rating;//рейтинг фильма
     //теперь записываенм методы геттеры/сеттеры для заполнения полей
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
-    public int getId() {
+    public long getId() {
         return id;
     }
 
