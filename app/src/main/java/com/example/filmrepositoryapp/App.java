@@ -1,11 +1,8 @@
 package com.example.filmrepositoryapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
+import android.app.Application;
 
 import io.realm.Realm;
-
 /*
         В этом задании работа с Realm. интерфейс FilmRepository
         стандартные методы получения, вставки, изменения, удаления элемента (Film).
@@ -13,14 +10,12 @@ import io.realm.Realm;
         Добавить возможность генерации данных для заполнения БД
 */
 
-public class MainActivity extends AppCompatActivity {
 
+public class App extends Application {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-         Realm.init(this); // Initialize Realm
+    public void onCreate() {
+        super.onCreate();
 
-
+        Realm.init(this);
     }
 }

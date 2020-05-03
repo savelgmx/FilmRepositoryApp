@@ -1,4 +1,4 @@
-package com.example.filmrepositoryapp;
+package com.example.filmrepositoryapp.model;
 
 import java.util.List;
 
