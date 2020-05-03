@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.FilmRepository;
 
+import java.util.Date;
+import java.util.List;
+
 public class RealmTestActivity extends AppCompatActivity {
 
     private FilmRepository mFilmRepository;
@@ -41,7 +44,7 @@ public class RealmTestActivity extends AppCompatActivity {
         findViewById(R.id.insert).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFilmRepository.insertItem(getNewTrack());
+                mFilmRepository.insertItem(getNewFilm());
 
             }
         });
@@ -49,7 +52,7 @@ public class RealmTestActivity extends AppCompatActivity {
         findViewById(R.id.update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFilmRepository.updateItem(getTrack());
+                mFilmRepository.updateItem(getFilm());
             }
         });
 
@@ -66,26 +69,25 @@ public class RealmTestActivity extends AppCompatActivity {
         return Long.parseLong(((EditText) findViewById(R.id.edit)).getText().toString());
     }
 
-    private Track getTrack() {
-        Track track = mFilmRepository.getItem(getId());
-        track.setDuration(66666);
-        return track;
+    private Film getFilm() {
+        Film film = mFilmRepository.getItem(getId());
+        return film;
     }
 
-    private Track getNewTrack() {
-        Track track = new Track();
-        track.setDate(new Date());
-        track.setDistance(123.4);
-        track.setDuration(13123);
-        return track;
+    private Film getNewFilm() {
+        Film film = new Film();
+        film.setRelease_date(new Date());
+        film.setFilm_name("A some new film");
+        film.setRating(10);
+        return film;
     }
 
-    private <T> String show(List<T> list) {
+    private <T> String show(List<Film> list) {
         if (list == null || list.isEmpty()) return "empty";
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (T t : list) {
+        for (Film t : list) {
             stringBuilder.append(t.toString()).append("\n");
         }
 
