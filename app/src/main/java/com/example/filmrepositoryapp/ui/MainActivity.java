@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import com.example.filmrepositoryapp.R;
 
 
-import io.realm.Realm;
 
 
 public class MainActivity extends AppCompatActivity {
