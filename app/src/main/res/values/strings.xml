@@ -3,4 +3,5 @@
     <string name="add_record">Добавить запись</string>
     <string name="edit_record">Редактировать запись</string>
     <string name="action_exit">Выход</string>
+    <string name="films">Список фильмов</string>
 </resources>

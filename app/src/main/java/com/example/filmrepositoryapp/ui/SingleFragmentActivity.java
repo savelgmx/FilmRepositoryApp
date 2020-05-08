@@ -1,12 +1,11 @@
 package com.example.filmrepositoryapp.ui;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 
 
 import com.example.filmrepositoryapp.R;
@@ -32,11 +31,11 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
     protected abstract Fragment getFragment();
 
     protected void changeFragment(@NonNull Fragment fragment) {
-        boolean shouldAddToBackStack = getSupportFragmentManager().findFragmentById(R.id.container) != null;
+        boolean shouldAddToBackStack = getSupportFragmentManager().findFragmentById(R.id.fragmentContainer) != null;
 
         FragmentTransaction transaction = getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container, fragment);
+                .replace(R.id.fragmentContainer, fragment);
 
         if (shouldAddToBackStack) {
             transaction.addToBackStack(fragment.getClass().getSimpleName());
