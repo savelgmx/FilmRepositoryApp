@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-
+//TODO Переписать правильно
 public class FilmAdapter extends RecyclerView.Adapter<FilmsHolder> {
     @NonNull
     @Override

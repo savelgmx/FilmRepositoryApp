@@ -13,17 +13,27 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.model.FilmRepository;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+
+//TODO getAll() from realmDB
 
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mRefresher;
     private View mErrorView;
+    private FilmAdapter mFilmsAdapter;
+    private FilmRepository mFilmRepository;
 
     public static MainFragment newInstance() {
         return new MainFragment();
     }
-
+    @NonNull
+ /*   private final FilmAdapter mFilmsAdapter = new FilmAdapter(film -> getFragmentManager().beginTransaction()
+            .replace(R.id.fragmentContainer, DetailFilmFragment.newInstance(film))
+            .addToBackStack(DetailFilmFragment.class.getSimpleName())
+            .commit());
+*/
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,13 +46,15 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         mRefresher = view.findViewById(R.id.refresher);
         mRefresher.setOnRefreshListener(this);
         mErrorView = view.findViewById(R.id.errorView);
+
+        mFilmRepository = new FilmRepository();
     }
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().setTitle(R.string.films);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //    mRecyclerView.setAdapter(mAlbumAdapter);
+            mRecyclerView.setAdapter(mFilmsAdapter);
 
         onRefresh();
     }
@@ -54,6 +66,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void getFilms() {
-        //достаем из realm
+        //достаем из realm список
+        mFilmRepository.getAll();
     }
 }

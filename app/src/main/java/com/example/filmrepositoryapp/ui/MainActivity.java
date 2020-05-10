@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.example.filmrepositoryapp.R;
 
 
+//TODO SingleFragmentActivity унаследовать
 
 
 public class MainActivity extends AppCompatActivity {
