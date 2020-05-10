@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,22 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         return inflater.inflate(R.layout.fr_recycler, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        mRecyclerView = view.findViewById(R.id.recycler);
+        mRefresher = view.findViewById(R.id.refresher);
+        mRefresher.setOnRefreshListener(this);
+        mErrorView = view.findViewById(R.id.errorView);
+    }
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getActivity().setTitle(R.string.films);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //    mRecyclerView.setAdapter(mAlbumAdapter);
+
+        onRefresh();
+    }
 
     @Override
     public void onRefresh() {
