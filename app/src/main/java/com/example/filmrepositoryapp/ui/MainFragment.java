@@ -17,23 +17,19 @@ import com.example.filmrepositoryapp.model.FilmRepository;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-//TODO getAll() from realmDB
-
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mRefresher;
     private View mErrorView;
-    private FilmAdapter mFilmsAdapter;
     private FilmRepository mFilmRepository;
 
     public static MainFragment newInstance() {
         return new MainFragment();
     }
     @NonNull
- /*   private final FilmAdapter mFilmsAdapter = new FilmAdapter(film -> getFragmentManager().beginTransaction()
+    private final FilmAdapter mFilmsAdapter = new FilmAdapter(film -> getFragmentManager().beginTransaction()
             .replace(R.id.fragmentContainer, DetailFilmFragment.newInstance(film))
             .addToBackStack(DetailFilmFragment.class.getSimpleName())
             .commit());
-*/
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,7 +50,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         getActivity().setTitle(R.string.films);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            mRecyclerView.setAdapter(mFilmsAdapter);
+        mRecyclerView.setAdapter(mFilmsAdapter);
 
         onRefresh();
     }
