@@ -1,6 +1,7 @@
 package com.example.filmrepositoryapp.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +10,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -30,6 +34,14 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             .replace(R.id.fragmentContainer, DetailFilmFragment.newInstance(film))
             .addToBackStack(DetailFilmFragment.class.getSimpleName())
             .commit());
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
+        super.onCreate(savedInstanceState);
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,6 +67,35 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         onRefresh();
     }
 
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.findItem(R.id.actionAddRecord).setVisible(true);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.actionAddRecord:
+               // AddRecordActivity.start(this);
+                Intent intent = new Intent(getActivity( ), AddRecordActivity.class);
+               startActivity(intent);
+                getActivity().finish();
+
+                return true;
+            case R.id.actionEditRecord:
+                //EditRecordActivity.start(this);
+                return true;
+            case R.id.actionExit:
+              //  getActivity().finish(); //убиваем текущую Активити
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
     @Override
     public void onRefresh() {
         mRefresher.post(this::getFilms);
@@ -65,4 +106,6 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         //достаем из realm список
         mFilmRepository.getAll();
     }
+
+
 }
