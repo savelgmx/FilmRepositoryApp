@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <AutoCompleteTextView
+        android:id="@+id/tvFilmName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/filmName"
+        tools:text="Название Фильма" />
+
+    <EditText
+        android:id="@+id/edReleaseDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        tools:text="@string/release_date" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/tvDicectorsName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/directors_name" />
+
+    <EditText
+        android:id="@+id/edRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        tools:text="@string/rating" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel" />
+    </LinearLayout>
+
+</LinearLayout>

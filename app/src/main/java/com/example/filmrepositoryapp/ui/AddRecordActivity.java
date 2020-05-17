@@ -1,13 +1,9 @@
 package com.example.filmrepositoryapp.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 
-import com.example.filmrepositoryapp.R;
-
-public class AddRecordActivity  extends AppCompatActivity {
+public class AddRecordActivity  extends SingleFragmentActivity {
 
 
     @Override
@@ -20,6 +16,7 @@ public class AddRecordActivity  extends AppCompatActivity {
         return AddRecordFragment.newInstance();
     }
 
+/*
 
     public static void start(MainActivity mainActivity) {
 
@@ -27,4 +24,5 @@ public class AddRecordActivity  extends AppCompatActivity {
         mainActivity.startActivity(intent);
 
     }
+*/
 }

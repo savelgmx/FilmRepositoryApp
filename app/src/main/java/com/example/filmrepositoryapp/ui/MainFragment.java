@@ -78,10 +78,10 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.actionAddRecord:
-               // AddRecordActivity.start(this);
-                Intent intent = new Intent(getActivity( ), AddRecordActivity.class);
-               startActivity(intent);
-                getActivity().finish();
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.fragmentContainer, AddRecordFragment.newInstance())
+                        .addToBackStack(MainFragment.class.getSimpleName())
+                        .commit();
 
                 return true;
             case R.id.actionEditRecord:

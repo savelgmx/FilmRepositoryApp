@@ -4,4 +4,8 @@
     <string name="edit_record">Редактировать запись</string>
     <string name="action_exit">Выход</string>
     <string name="films">Список фильмов</string>
+    <string name="filmName">Название Фильма</string>
+    <string name="release_date">Дата выхода фильма</string>
+    <string name="directors_name">Режиссер фильма</string>
+    <string name="rating">Рейтинг Фильма</string>
 </resources>
