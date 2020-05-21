@@ -39,7 +39,7 @@ public class Film extends RealmObject {
     public void setRelease_date(Date release_date ) { this.release_date = release_date; }
     public Date getRelease_date() { return  release_date; }
 
-    public void setRating(int rating) {
+    public void  setRating(int rating) {
         this.rating = rating;
     }
 

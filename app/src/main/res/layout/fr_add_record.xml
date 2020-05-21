@@ -21,7 +21,7 @@
         tools:text="@string/release_date" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/tvDicectorsName"
+        android:id="@+id/tvDirectorsName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/directors_name" />

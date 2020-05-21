@@ -5,30 +5,61 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.model.FRepository;
+import com.example.filmrepositoryapp.model.Film;
+import com.example.filmrepositoryapp.model.FilmRepository;
+
+import java.util.Date;
+
+//TODO разобратся с кастованием даты
 
 public class AddRecordFragment extends Fragment {
 
+    private AutoCompleteTextView mFilmName;
+    private EditText mReleaseDate;
+    private AutoCompleteTextView mDirectorsName;
+    private EditText mRating;
+
+
+    private Button mOnSaveRecord;
+    private Button mOnCancelAddRecord;
+
+    private FilmRepository mFilmRepository;
+
+
     public static Fragment newInstance() {
-        Log.d("FilmRepositoryApp","Add record fragment");
         return new AddRecordFragment();
     }
-    //TODO добавить сохранение в базу
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(false);
         super.onCreate(savedInstanceState);
     }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fr_add_record, container, false);
+
+        View v= inflater.inflate(R.layout.fr_add_record, container, false);
+
+        mFilmName =v.findViewById(R.id.tvFilmName);
+        mDirectorsName =v.findViewById(R.id.tvDirectorsName);
+        mReleaseDate= v.findViewById(R.id.edReleaseDate);
+        mRating=v.findViewById(R.id.edRating);
+
+        mOnSaveRecord = v.findViewById(R.id.btnSave);
+        mOnCancelAddRecord = v.findViewById(R.id.btnCancel);
+
+        mOnSaveRecord.setOnClickListener(mOnSaveRecordListener);
+        mOnCancelAddRecord.setOnClickListener(mOnCancelAddRecordListener);
+
+        return v;
     }
 
     @Override
@@ -41,6 +72,30 @@ public class AddRecordFragment extends Fragment {
 
     }
 
+    private View.OnClickListener mOnSaveRecordListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            mFilmRepository.insertItem(getNewFilm());
+        }
+    };
 
+    private View.OnClickListener mOnCancelAddRecordListener = new View.OnClickListener(){
+        @Override
+        public void onClick(View view) {
+            mFilmName.setText(" ");
+            mDirectorsName.setText(" ");
+            mRating.setText(0);
+        }
+    };
+
+    private Film getNewFilm(){
+        //здесь сохранаяем добавленную запись
+        Film film = new Film();
+        film.setFilm_name(mFilmName.getText().toString());
+     //   film.setRelease_date( mReleaseDate.getText().toString());
+        film.setDirectors_name(mDirectorsName.getText().toString());
+        film.setRating(Integer.parseInt(mRating.getText().toString()));
+        return film;
+    }
 
 }

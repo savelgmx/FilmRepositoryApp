@@ -88,7 +88,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 //EditRecordActivity.start(this);
                 return true;
             case R.id.actionExit:
-              //  getActivity().finish(); //убиваем текущую Активити
+                getActivity().finish(); //убиваем текущую Активити
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -105,6 +105,8 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void getFilms() {
         //достаем из realm список
         mFilmRepository.getAll();
+
+
     }
 
 
