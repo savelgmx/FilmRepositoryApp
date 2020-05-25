@@ -74,11 +74,20 @@ public class FilmRepository implements FRepository<Film> {
 
 /*
     Добавьте возможность поиска по диапазону года выхода фильма, метод List<Film> searchInBounds(int startYear, int endYear);
-    Добавьте возможность поиска фильмов определенного режиссера, методList<Film> searchByDirector(String name). Имя может быть указано не полностью, минимум 4 символа, только в начале слова.
+    Добавьте возможность поиска фильмов определенного режиссера, методList<Film> searchByDirector(String name).
+    Имя может быть указано не полностью, минимум 4 символа, только в начале слова.
     Добавьте возможность получить топ фильмов по рейтингу (double поле)List<Film> getTopFilms(int count)
 */
     public List<Film> searchInBounds(int startYear,int endYear){
-        return mRealm.where(Film.class).between("relaese_date",startYear,endYear).findAll();
+        return mRealm.where(Film.class).between("release_date",startYear,endYear).findAll();
+    }
+
+    public List<Film> searchByDirector(String directorsName){
+        return mRealm.where(Film.class).contains("direcors_name",directorsName).findAll();
+    }
+
+    public List<Film> getTopFilms(int count){
+        return mRealm.where(Film.class).equalTo("rating",count).findAll();
     }
 
 }

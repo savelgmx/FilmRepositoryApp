@@ -13,13 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.filmrepositoryapp.R;
-import com.example.filmrepositoryapp.model.FRepository;
 import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.FilmRepository;
 
-import java.util.Date;
 
-//TODO разобратся с кастованием даты
 
 public class AddRecordFragment extends Fragment {
 
@@ -41,6 +38,7 @@ public class AddRecordFragment extends Fragment {
      public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(false);
         super.onCreate(savedInstanceState);
+         mFilmRepository = new FilmRepository();
     }
     @Nullable
     @Override
@@ -92,7 +90,7 @@ public class AddRecordFragment extends Fragment {
         //здесь сохранаяем добавленную запись
         Film film = new Film();
         film.setFilm_name(mFilmName.getText().toString());
-     //   film.setRelease_date( mReleaseDate.getText().toString());
+        film.setRelease_date( Integer.parseInt(mReleaseDate.getText().toString()));
         film.setDirectors_name(mDirectorsName.getText().toString());
         film.setRating(Integer.parseInt(mRating.getText().toString()));
         return film;

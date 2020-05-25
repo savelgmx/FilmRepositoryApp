@@ -21,7 +21,7 @@ public class FilmsHolder extends RecyclerView.ViewHolder{
 
     public void bind(Film item, FilmAdapter.OnItemClickListener onItemClickListener) {
         mTitle.setText(item.getFilm_name());
-        mReleaseDate.setText((CharSequence) item.getRelease_date());
+        mReleaseDate.setText(item.getRelease_date());
 
         if(onItemClickListener!= null){
             itemView.setOnClickListener(v->onItemClickListener.onItemClick(item));

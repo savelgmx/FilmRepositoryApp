@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.RealmTestActivity;
 import com.example.filmrepositoryapp.model.FilmRepository;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -86,6 +87,8 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 return true;
             case R.id.actionEditRecord:
                 //EditRecordActivity.start(this);
+
+
                 return true;
             case R.id.actionExit:
                 getActivity().finish(); //убиваем текущую Активити
@@ -105,7 +108,6 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void getFilms() {
         //достаем из realm список
         mFilmRepository.getAll();
-
 
     }
 

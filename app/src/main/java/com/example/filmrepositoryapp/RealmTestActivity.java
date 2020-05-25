@@ -1,6 +1,7 @@
 package com.example.filmrepositoryapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.FilmRepository;
+import com.example.filmrepositoryapp.ui.MainFragment;
 
 import java.util.Date;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.List;
 public class RealmTestActivity extends AppCompatActivity {
 
     private FilmRepository mFilmRepository;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +80,7 @@ public class RealmTestActivity extends AppCompatActivity {
 
     private Film getNewFilm() {
         Film film = new Film();
-        film.setRelease_date(new Date());
+        film.setRelease_date(1990);
         film.setFilm_name("A some new film");
         film.setRating(10);
         return film;
