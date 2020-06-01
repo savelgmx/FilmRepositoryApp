@@ -15,6 +15,8 @@ public class DetailFilmFragment extends Fragment implements SwipeRefreshLayout.O
         return fragment;
     }
 
+
+
     //TODO добавить отображение детальных сведений о фильме
     @Override
     public void onRefresh() {

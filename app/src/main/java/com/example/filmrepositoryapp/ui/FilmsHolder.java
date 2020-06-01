@@ -11,11 +11,16 @@ import com.example.filmrepositoryapp.model.Film;
 public class FilmsHolder extends RecyclerView.ViewHolder{
     private TextView mTitle;
     private TextView mReleaseDate;
+    private TextView mDirectorsName;
+    private TextView mRating;
+
     public FilmsHolder(View itemView) {
 
         super(itemView);
         mTitle = itemView.findViewById(R.id.tv_title);
         mReleaseDate = itemView.findViewById(R.id.tv_release_date);
+        mDirectorsName =itemView.findViewById(R.id.tv_directors_name);
+        mRating=itemView.findViewById(R.id.tv_rating);
 
     }
 

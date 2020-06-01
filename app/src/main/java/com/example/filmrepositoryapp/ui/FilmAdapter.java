@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
@@ -12,11 +14,7 @@ import com.example.filmrepositoryapp.model.Film;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 public class FilmAdapter extends RecyclerView.Adapter<FilmsHolder> {
-
-
         @NonNull
         private final List<Film> mFilms = new ArrayList<>();
         private final OnItemClickListener mOnClickListener;
@@ -32,7 +30,8 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmsHolder> {
             return new FilmsHolder(view);
         }
 
-        @Override
+
+    @Override
         public void onBindViewHolder(FilmsHolder holder, int position) {
             Film film = mFilms.get(position);
             holder.bind(film, mOnClickListener);
@@ -52,7 +51,9 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmsHolder> {
             notifyDataSetChanged();
         }
 
-        public interface OnItemClickListener {
+
+
+    public interface OnItemClickListener {
             void onItemClick(Film film);
         }
     }
