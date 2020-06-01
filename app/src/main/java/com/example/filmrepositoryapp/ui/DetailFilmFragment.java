@@ -8,7 +8,7 @@ import com.example.filmrepositoryapp.model.Film;
 
 public class DetailFilmFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
 
-    public static DetailFilmFragment newInstance(Film film) {
+    public static DetailFilmFragment newInstance(Object film) {
         Bundle args = new Bundle();
         DetailFilmFragment fragment = new DetailFilmFragment();
         fragment.setArguments(args);

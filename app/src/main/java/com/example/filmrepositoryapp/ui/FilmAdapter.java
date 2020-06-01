@@ -5,8 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
@@ -14,16 +12,30 @@ import com.example.filmrepositoryapp.model.Film;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilmAdapter extends RecyclerView.Adapter<FilmsHolder> {
-        @NonNull
-        private final List<Film> mFilms = new ArrayList<>();
-        private final OnItemClickListener mOnClickListener;
+import io.realm.RealmModel;
+import io.realm.RealmRecyclerViewAdapter;
+import io.realm.RealmResults;
 
-        public FilmAdapter(OnItemClickListener onClickListener) {
-            mOnClickListener = onClickListener;
+
+public class FilmAdapter extends RealmRecyclerViewAdapter<Film,FilmsHolder> {
+
+    public static OnItemClickListener onItemClickListener;
+    @NonNull
+        private final List<Film> mFilms = new ArrayList<>();
+       // private final OnItemClickListener mOnClickListener;
+
+        public FilmAdapter(RealmResults<Film> films) {
+            super(films,true);
+           // mOnClickListener = onClickListener;
         }
 
-        @Override
+/*
+    public FilmAdapter(RealmResults<Film> allAsync) {
+        super(allAsync,true);
+    }
+*/
+
+    @Override
         public FilmsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             View view = inflater.inflate(R.layout.list_item_film, parent, false);
@@ -31,11 +43,19 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmsHolder> {
         }
 
 
+
     @Override
-        public void onBindViewHolder(FilmsHolder holder, int position) {
-            Film film = mFilms.get(position);
-            holder.bind(film, mOnClickListener);
+        public void onBindViewHolder(FilmsHolder holder, final int position) {
+
+            final Film film = getItem(position);
+            if (film != null){
+              //  holder.bind(film,mOnClickListener);
+                holder.bind(film);
+
+            }
+
         }
+
 
         @Override
         public int getItemCount() {

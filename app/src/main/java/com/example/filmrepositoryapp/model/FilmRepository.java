@@ -7,7 +7,7 @@ import io.realm.Realm;
 
 public class FilmRepository implements FRepository<Film> {
 
-    private Realm mRealm;
+    private static Realm mRealm;
     private static AtomicLong sPrimaryId;
 
     public FilmRepository(){
@@ -32,6 +32,10 @@ public class FilmRepository implements FRepository<Film> {
     @Override
     public List<Film> getAll() {
         return mRealm.where(Film.class).findAll();
+    }
+
+    public static List<Film> getAllAsync() {
+        return mRealm.where(Film.class).findAllAsync();
     }
 
     private Film getRealmAssociatedFilm(long id) {

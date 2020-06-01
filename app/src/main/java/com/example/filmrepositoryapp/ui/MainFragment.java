@@ -18,7 +18,11 @@ import android.view.ViewGroup;
 
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.RealmTestActivity;
+import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.FilmRepository;
+import com.example.filmrepositoryapp.model.RealmManager;
+
+import io.realm.Realm;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -31,15 +35,18 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         return new MainFragment();
     }
     @NonNull
+/*
     private final FilmAdapter mFilmsAdapter = new FilmAdapter(film -> getFragmentManager().beginTransaction()
             .replace(R.id.fragmentContainer, DetailFilmFragment.newInstance(film))
             .addToBackStack(DetailFilmFragment.class.getSimpleName())
             .commit());
+*/
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
+
     }
 
 
@@ -62,9 +69,15 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         super.onActivityCreated(savedInstanceState);
         getActivity().setTitle(R.string.films);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(mFilmsAdapter);
+        //get realm instance
+    //    Realm realm = RealmManager.getRealm();
 
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setAdapter((RecyclerView.Adapter) FilmRepository.getAllAsync());
+
+       // mRecyclerView.setAdapter(new FilmAdapter(realm.where(Film.class).findAllAsync()));
+
+//new BooksAdapter(realm.where(Book.class).findAllAsync())
         onRefresh();
     }
 

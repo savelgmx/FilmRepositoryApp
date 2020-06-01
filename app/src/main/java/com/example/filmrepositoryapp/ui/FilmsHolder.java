@@ -24,13 +24,19 @@ public class FilmsHolder extends RecyclerView.ViewHolder{
 
     }
 
-    public void bind(Film item, FilmAdapter.OnItemClickListener onItemClickListener) {
+ /*   public void bind(Film item, FilmAdapter.OnItemClickListener onItemClickListener) {
         mTitle.setText(item.getFilm_name());
         mReleaseDate.setText(item.getRelease_date());
 
         if(onItemClickListener!= null){
             itemView.setOnClickListener(v->onItemClickListener.onItemClick(item));
         }
+    }
+*/
+    public void bind(Film item) {
+        mTitle.setText(item.getFilm_name());
+        mReleaseDate.setText(item.getRelease_date());
+
     }
 
 }
