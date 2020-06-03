@@ -23,6 +23,7 @@ import com.example.filmrepositoryapp.model.FilmRepository;
 import com.example.filmrepositoryapp.model.RealmManager;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
@@ -72,8 +73,17 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         //get realm instance
     //    Realm realm = RealmManager.getRealm();
 
+        //RETRIEVE
+ /*       RealmHelper helper=new RealmHelper(realm);
+        spacecrafts=helper.retrieve();
+*/
+        FilmRepository repository = new FilmRepository();
+        FilmAdapter filmAdapter = new FilmAdapter((RealmResults<Film>) repository.getAll());
+
+
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter((RecyclerView.Adapter) FilmRepository.getAllAsync());
+        mRecyclerView.setAdapter(filmAdapter);
 
        // mRecyclerView.setAdapter(new FilmAdapter(realm.where(Film.class).findAllAsync()));
 
