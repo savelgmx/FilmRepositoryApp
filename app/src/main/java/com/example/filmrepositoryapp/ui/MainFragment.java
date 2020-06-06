@@ -17,10 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.filmrepositoryapp.R;
-import com.example.filmrepositoryapp.RealmTestActivity;
+
 import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.FilmRepository;
 import com.example.filmrepositoryapp.model.RealmManager;
+
+import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -30,19 +32,21 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mRefresher;
     private View mErrorView;
+
     private FilmRepository mFilmRepository;
+    private FilmAdapter mFilmsAdapter;
+
+    private Realm realm;
 
     public static MainFragment newInstance() {
         return new MainFragment();
     }
-    @NonNull
-/*
+ /*   @NonNull
     private final FilmAdapter mFilmsAdapter = new FilmAdapter(film -> getFragmentManager().beginTransaction()
             .replace(R.id.fragmentContainer, DetailFilmFragment.newInstance(film))
             .addToBackStack(DetailFilmFragment.class.getSimpleName())
             .commit());
 */
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
@@ -64,31 +68,32 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         mRefresher.setOnRefreshListener(this);
         mErrorView = view.findViewById(R.id.errorView);
 
-        mFilmRepository = new FilmRepository();
-    }
+     }
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getActivity().setTitle(R.string.films);
 
         //get realm instance
-    //    Realm realm = RealmManager.getRealm();
+        Realm realm = RealmManager.getRealm();
+        realm = Realm.getDefaultInstance();
 
-        //RETRIEVE
- /*       RealmHelper helper=new RealmHelper(realm);
-        spacecrafts=helper.retrieve();
+
+        mFilmRepository = new FilmRepository();
+
+ /*       List<Film> filmsList = mFilmRepository.getAll();
+
+        mFilmsAdapter = new FilmAdapter((RealmResults<Film>) filmsList);
 */
-        FilmRepository repository = new FilmRepository();
-        FilmAdapter filmAdapter = new FilmAdapter((RealmResults<Film>) repository.getAll());
-
-
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(filmAdapter);
+      //  mRecyclerView.setAdapter(mFilmsAdapter);
 
-       // mRecyclerView.setAdapter(new FilmAdapter(realm.where(Film.class).findAllAsync()));
+        // get all persisted objects
+        // changes will be reflected automatically
 
-//new BooksAdapter(realm.where(Book.class).findAllAsync())
-        onRefresh();
+        mRecyclerView.setAdapter(new FilmAdapter(realm.where(Film.class).findAllAsync()));
+
+ //       onRefresh();
     }
 
 

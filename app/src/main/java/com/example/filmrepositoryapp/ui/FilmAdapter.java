@@ -17,16 +17,16 @@ import io.realm.RealmRecyclerViewAdapter;
 import io.realm.RealmResults;
 
 
-public class FilmAdapter extends RealmRecyclerViewAdapter<Film,FilmsHolder> {
+public class FilmAdapter extends RecyclerView.Adapter<FilmsHolder> {
 
     public static OnItemClickListener onItemClickListener;
     @NonNull
         private final List<Film> mFilms = new ArrayList<>();
-       // private final OnItemClickListener mOnClickListener;
+    //    private final OnItemClickListener mOnClickListener;
 
         public FilmAdapter(RealmResults<Film> films) {
-            super(films,true);
-           // mOnClickListener = onClickListener;
+            super();
+      //      mOnClickListener = onClickListener;
         }
 
 /*
@@ -47,12 +47,12 @@ public class FilmAdapter extends RealmRecyclerViewAdapter<Film,FilmsHolder> {
     @Override
         public void onBindViewHolder(FilmsHolder holder, final int position) {
 
-            final Film film = getItem(position);
-            if (film != null){
-              //  holder.bind(film,mOnClickListener);
-                holder.bind(film);
+            //final Film film = getItem(position);
+            //if (film != null){
+          //      holder.bind(film,mOnClickListener);
+             //   holder.bind(film);
 
-            }
+          //  }
 
         }
 

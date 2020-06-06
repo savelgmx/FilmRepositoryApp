@@ -36,6 +36,8 @@ public class FilmsHolder extends RecyclerView.ViewHolder{
     public void bind(Film item) {
         mTitle.setText(item.getFilm_name());
         mReleaseDate.setText(item.getRelease_date());
+        mDirectorsName.setText(item.getDirectors_name());
+        mRating.setText(item.getRating());
 
     }
 

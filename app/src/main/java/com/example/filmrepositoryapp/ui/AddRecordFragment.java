@@ -38,7 +38,7 @@ public class AddRecordFragment extends Fragment {
      public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(false);
         super.onCreate(savedInstanceState);
-         mFilmRepository = new FilmRepository();
+       //  mFilmRepository = new FilmRepository();
     }
     @Nullable
     @Override

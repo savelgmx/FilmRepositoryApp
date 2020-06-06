@@ -3,6 +3,8 @@ package com.example.filmrepositoryapp;
 import android.app.Application;
 
 import com.example.filmrepositoryapp.model.Film;
+import com.example.filmrepositoryapp.model.RealmInitialData;
+import com.example.filmrepositoryapp.model.RealmManager;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -19,20 +21,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Realm.init(this);
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder().build();
-        Realm.setDefaultConfiguration(realmConfig);
-
-/*
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder()
-                .initialData(new Realm.Transaction() {
-                    @Override
-                    public void execute(Realm realm) {
-                        realm.createObject(Film.class);
-                    }})
-                .build();
-        Realm.deleteRealm(realmConfig); // Delete Realm between app restarts.
-        Realm.setDefaultConfiguration(realmConfig);
-*/
+        Realm.init(getApplicationContext());
+        RealmManager.initializeRealmConfig();
     }
 }

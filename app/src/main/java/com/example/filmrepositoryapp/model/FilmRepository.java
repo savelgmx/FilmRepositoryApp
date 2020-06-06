@@ -10,10 +10,15 @@ public class FilmRepository implements FRepository<Film> {
     private static Realm mRealm;
     private static AtomicLong sPrimaryId;
 
-    public FilmRepository(){
+    public FilmRepository(Realm realm){
         mRealm = Realm.getDefaultInstance();
         Number max = mRealm.where(Film.class).max("id");
         sPrimaryId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
+
+    }
+
+    public FilmRepository() {
+        mRealm = Realm.getDefaultInstance();
 
     }
 
