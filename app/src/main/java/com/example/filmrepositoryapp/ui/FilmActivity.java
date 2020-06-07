@@ -9,10 +9,12 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Toolbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.filmrepositoryapp.FilmPresenter;
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.RealmManager;
@@ -30,7 +32,7 @@ import io.realm.Realm;
 */
 
 
-public class FilmActivity extends AppCompatActivity {
+public class FilmActivity extends AppCompatActivity  implements FilmPresenter.ViewContract {
 
     @BindView(R.id.main_root)
     ViewGroup root;
@@ -40,6 +42,10 @@ public class FilmActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    FilmPresenter filmPresenter;
+
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,7 @@ public class FilmActivity extends AppCompatActivity {
         //get presenter instance
         //when it will be written
        // booksPresenter = fragment.getPresenter();
+       // filmPresenter = fragment.getPresenter();
 
          setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -90,4 +97,18 @@ public class FilmActivity extends AppCompatActivity {
         return false;
     }
 
+    @Override
+    public void showAddFilmDialog() {
+
+    }
+
+    @Override
+    public void showMissingFilmName() {
+
+    }
+
+    @Override
+    public void showEditFilmDialog(Film film) {
+
+    }
 }

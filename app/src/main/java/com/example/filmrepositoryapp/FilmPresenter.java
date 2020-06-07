@@ -18,16 +18,17 @@ public class FilmPresenter {
     public static final String TAG = "FilmPresenter";
 
     public interface ViewContract {
-        void showAddBookDialog();
+        void showAddFilmDialog();
 
-        void showMissingTitle();
+        void showMissingFilmName();
 
-        void showEditBookDialog(Film film);
+        void showEditFilmDialog(Film film);
 
         interface DialogContract {
             String getFilmName();
             String getDirectorsName();
             int getRating();
+            int getReleaseDate();
 
             void bind(Film film);
         }
@@ -55,7 +56,7 @@ public class FilmPresenter {
     public void showAddDialog() {
         if(hasView()) {
             isDialogShowing = true;
-            viewContract.showAddBookDialog();
+            viewContract.showAddFilmDialog();
         }
     }
 
@@ -65,18 +66,18 @@ public class FilmPresenter {
 
     public void showEditDialog(Film film) {
         if(hasView()) {
-            viewContract.showEditBookDialog(film);
+            viewContract.showEditFilmDialog(film);
         }
     }
 
-    public void saveBook(ViewContract.DialogContract dialogContract) {
+    public void saveFilm(ViewContract.DialogContract dialogContract) {
         if(hasView()) {
             final String directorsName = dialogContract.getDirectorsName();
             final String filmName = dialogContract.getFilmName();
             final int rating = dialogContract.getRating();
 
             if(filmName == null || "".equals(filmName.trim())) {
-                viewContract.showMissingTitle();
+                viewContract.showMissingFilmName();
             } else {
                 Realm realm = RealmManager.getRealm();
                 realm.executeTransactionAsync(new Realm.Transaction() {
@@ -112,7 +113,7 @@ public class FilmPresenter {
         });
     }
 
-    public void editBook(final ViewContract.DialogContract dialogContract, final long id) {
+    public void editFilm(final ViewContract.DialogContract dialogContract, final long id) {
         Realm realm = RealmManager.getRealm();
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
@@ -122,6 +123,7 @@ public class FilmPresenter {
                     film.setFilm_name(dialogContract.getFilmName());
                     film.setRating(dialogContract.getRating());
                     film.setDirectors_name(dialogContract.getDirectorsName());
+                    film.setRelease_date(dialogContract.getReleaseDate());
                 }
             }
         });
