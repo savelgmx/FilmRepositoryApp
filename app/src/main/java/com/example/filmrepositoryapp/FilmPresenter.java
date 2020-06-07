@@ -1,0 +1,130 @@
+package com.example.filmrepositoryapp;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+
+import com.example.filmrepositoryapp.model.Film;
+import com.example.filmrepositoryapp.model.RealmManager;
+
+import io.realm.Realm;
+
+public class FilmPresenter {
+    @SuppressLint("WrongConstant")
+    public static FilmPresenter getService(Context context) {
+        //noinspection ResourceType
+        return (FilmPresenter) context.getSystemService(TAG);
+    }
+
+    public static final String TAG = "FilmPresenter";
+
+    public interface ViewContract {
+        void showAddBookDialog();
+
+        void showMissingTitle();
+
+        void showEditBookDialog(Film film);
+
+        interface DialogContract {
+            String getFilmName();
+            String getDirectorsName();
+            int getRating();
+
+            void bind(Film film);
+        }
+    }
+
+    ViewContract viewContract;
+
+    boolean isDialogShowing;
+
+    boolean hasView() {
+        return viewContract != null;
+    }
+
+    public void bindView(ViewContract viewContract) {
+        this.viewContract = viewContract;
+        if(isDialogShowing) {
+            showAddDialog();
+        }
+    }
+
+    public void unbindView() {
+        this.viewContract = null;
+    }
+
+    public void showAddDialog() {
+        if(hasView()) {
+            isDialogShowing = true;
+            viewContract.showAddBookDialog();
+        }
+    }
+
+    public void dismissAddDialog() {
+        isDialogShowing = false;
+    }
+
+    public void showEditDialog(Film film) {
+        if(hasView()) {
+            viewContract.showEditBookDialog(film);
+        }
+    }
+
+    public void saveBook(ViewContract.DialogContract dialogContract) {
+        if(hasView()) {
+            final String directorsName = dialogContract.getDirectorsName();
+            final String filmName = dialogContract.getFilmName();
+            final int rating = dialogContract.getRating();
+
+            if(filmName == null || "".equals(filmName.trim())) {
+                viewContract.showMissingTitle();
+            } else {
+                Realm realm = RealmManager.getRealm();
+                realm.executeTransactionAsync(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        Film film = new Film();
+                        long id = 1;
+                        if(realm.where(Film.class).count() > 0) {
+                            id = realm.where(Film.class).max("id").longValue() + 1; // auto-increment id
+                        }
+                        film.setId(id);
+                        film.setDirectors_name(directorsName);
+                        film.setDescription("");
+                        film.setRating(rating);
+                        film.setFilm_name(filmName);
+                        realm.insertOrUpdate(film);
+                    }
+                });
+            }
+        }
+    }
+
+    public void deleteFilmById(final long id) {
+        Realm realm = RealmManager.getRealm();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                Film film = realm.where(Film.class).equalTo("id",id).findFirst();
+                if(film != null) {
+                    film.deleteFromRealm();
+                }
+            }
+        });
+    }
+
+    public void editBook(final ViewContract.DialogContract dialogContract, final long id) {
+        Realm realm = RealmManager.getRealm();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+               Film film = realm.where(Film.class).equalTo("id", id).findFirst();
+                if(film != null) {
+                    film.setFilm_name(dialogContract.getFilmName());
+                    film.setRating(dialogContract.getRating());
+                    film.setDirectors_name(dialogContract.getDirectorsName());
+                }
+            }
+        });
+    }
+
+}

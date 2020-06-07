@@ -1,9 +1,12 @@
 package com.example.filmrepositoryapp.ui;
 
 
-import android.support.v7.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
 

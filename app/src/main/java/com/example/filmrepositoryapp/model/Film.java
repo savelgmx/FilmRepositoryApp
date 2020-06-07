@@ -3,15 +3,18 @@ package com.example.filmrepositoryapp.model;
 import java.util.Date;
 
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
 public class Film extends RealmObject {
     @PrimaryKey
     private long id;
     private String film_name;//название фильма
+    @Index
     private String directors_name; //имя режиссера
     private int release_date;//дата выхода фильма т.к.это обычно год без месяцев и дат довольно целого числа
     private int rating;//рейтинг фильма
+    private String description;//описание фильма
     //теперь записываенм методы геттеры/сеттеры для заполнения полей
     public void setId(long id) {
         this.id = id;
@@ -46,4 +49,7 @@ public class Film extends RealmObject {
     public int getRating() {
         return rating;
     }
+
+    public void setDescription(String s) { this.description=s; }
+    public String getDescription(){return description;}
 }

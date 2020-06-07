@@ -1,14 +1,8 @@
 package com.example.filmrepositoryapp.ui;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,13 +10,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.example.filmrepositoryapp.R;
-import com.example.filmrepositoryapp.RealmTestActivity;
 import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.FilmRepository;
-import com.example.filmrepositoryapp.model.RealmManager;
 
-import io.realm.Realm;
+
 import io.realm.RealmResults;
 
 public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
@@ -71,7 +70,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         getActivity().setTitle(R.string.films);
 
         //get realm instance
-    //    Realm realm = RealmManager.getRealm();
+        //Realm realm = RealmManager.getRealm();
 
         //RETRIEVE
  /*       RealmHelper helper=new RealmHelper(realm);
