@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +21,6 @@ import com.example.filmrepositoryapp.model.RealmManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import io.realm.Realm;
 /*
@@ -52,16 +51,19 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
         Realm.init(getApplicationContext());
         RealmManager.initializeRealmConfig();
         super.onCreate(savedInstanceState);
+        FilmScopeListener fragment = (FilmScopeListener) getSupportFragmentManager().findFragmentByTag("SCOPE_LISTENER");
+        if(fragment == null) {
+            fragment = new FilmScopeListener();
+            getSupportFragmentManager().beginTransaction().add(fragment, "SCOPE_LISTENER").commit();
+        }
 
         //get realm instance
         Realm realm = RealmManager.getRealm();
 
         //get presenter instance
-        //when it will be written
-       // booksPresenter = fragment.getPresenter();
-       // filmPresenter = fragment.getPresenter();
+        filmPresenter = fragment.getPresenter();
 
-         setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
         //set toolbar
@@ -86,6 +88,7 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
     }
 
 
+/*
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         menu.findItem(R.id.actionAddRecord).setVisible(false);
@@ -96,6 +99,7 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
     public boolean onOptionsItemSelected(MenuItem item) {
         return false;
     }
+*/
 
     @Override
     public void showAddFilmDialog() {
