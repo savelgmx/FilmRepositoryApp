@@ -8,4 +8,7 @@
     <string name="release_date">Дата выхода фильма</string>
     <string name="directors_name">Режиссер фильма</string>
     <string name="rating">Рейтинг Фильма</string>
+    <string name="add_film">Добавить фильм</string>
+    <string name="entry_not_saved">Не сохранен</string>
+    <string name="edit_film">Редактировать фильм</string>
 </resources>
