@@ -23,7 +23,7 @@ public class FilmsHolder extends RecyclerView.ViewHolder{
         mTitle = itemView.findViewById(R.id.tv_title);
         mReleaseDate = itemView.findViewById(R.id.tv_release_date);
         mDirectorsName =itemView.findViewById(R.id.tv_directors_name);
-        mRating=itemView.findViewById(R.id.tv_rating);
+        mRating=itemView.findViewById(R.id.edRating);
 
     }
 
