@@ -3,6 +3,7 @@ package com.example.filmrepositoryapp.ui;
 
 import android.content.DialogInterface;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,10 +67,8 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
         ButterKnife.bind(this);
 
         //set toolbar
-/*
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
-*/
 
         //setup recycler
         recycler.setHasFixedSize(true);
