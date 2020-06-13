@@ -100,8 +100,8 @@ public class FilmsAddFilmView extends LinearLayout implements FilmActivity.Dialo
 
         textFilmName.setText(_filmName);
         textDirectorsName.setText(_directorsName);
-        textRating.setText(_rating);
-        textReleasedate.setText(_releaseDate);
+        textRating.setText(String.valueOf(_rating) );
+        textReleasedate.setText(String.valueOf(_releaseDate)  );
 
         filmName = _filmName;
         directorsName = _directorsName;

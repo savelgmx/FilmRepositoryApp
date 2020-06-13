@@ -49,10 +49,10 @@ public class Film extends RealmObject {
     public void setDescription(String s) { this.description=s; }
     public String getDescription(){return description;}
 
-    public String getImage_Url() {
+    public String getImageUrl() {
         return image_url;
     }
-    public void setImage_Url(String imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.image_url = imageUrl;
     }
 

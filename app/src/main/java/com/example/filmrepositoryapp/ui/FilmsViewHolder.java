@@ -5,6 +5,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.filmrepositoryapp.FilmPresenter;
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
@@ -48,8 +51,21 @@ public class FilmsViewHolder extends RecyclerView.ViewHolder{
         final long id = film.getId();
         textFilmName.setText(film.getFilm_name());
         textDirectorsName.setText(film.getDirectors_name());
-        textReleaseDate.setText(film.getRelease_date());
-        textRating.setText(film.getRating());
+        textReleaseDate.setText( String.valueOf( film.getRelease_date() ) );
+        textRating.setText(String.valueOf( film.getRating() ) );
+
+        // load the background image
+        if (film.getImageUrl() != null) {
+            Glide.with(context)
+                    .load(film.getImageUrl())
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(imageBackground);
+        }
+
+
+
+
         //update single match from realm
         card.setOnClickListener(new View.OnClickListener() {
             @Override
