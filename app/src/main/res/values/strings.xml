@@ -11,4 +11,5 @@
     <string name="add_film">Добавить фильм</string>
     <string name="entry_not_saved">Не сохранен</string>
     <string name="edit_film">Редактировать фильм</string>
+    <string name="image">Image URL</string>
 </resources>

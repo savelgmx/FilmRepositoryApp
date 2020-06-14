@@ -81,7 +81,8 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
         recycler.setAdapter(new FilmAdapter(realm.where(Film.class).findAllAsync()));
 
         if(savedInstanceState == null) {
-            Toast.makeText(this, "R.string.press_to_edit_long_press_remove", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "ДЛИННОЕ НАЖАТИЕ УДАЛЯЕТ ФИЛЬМ ИЗ СПИСКА!" +
+                    "КОРОТКОЕ-редактирует!", Toast.LENGTH_LONG).show();
         }
 
         // bind to presenter

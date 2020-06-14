@@ -27,6 +27,7 @@ public class FilmsAddFilmView extends LinearLayout implements FilmActivity.Dialo
 
     String filmName;
     String directorsName;
+    String thumbnail;
 
     int rating;
     int releaseDate;
@@ -43,6 +44,10 @@ public class FilmsAddFilmView extends LinearLayout implements FilmActivity.Dialo
 
     @BindView(R.id.edRating)
     EditText textRating;
+
+    @BindView(R.id.thumbnail)
+    EditText textThumbnail;
+
 
     @OnTextChanged(R.id.tvFilmName)
     public void filmNameChanged(CharSequence _filmName) {
@@ -63,6 +68,13 @@ public class FilmsAddFilmView extends LinearLayout implements FilmActivity.Dialo
         releaseDate = _rating;
     }
 
+
+    @OnTextChanged(R.id.thumbnail)
+    public void thumbnailChanged(CharSequence _thumbnail) {
+        thumbnail = _thumbnail.toString();
+    }
+
+
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
@@ -70,31 +82,33 @@ public class FilmsAddFilmView extends LinearLayout implements FilmActivity.Dialo
     }
 
 
-    @Override
+
     public String getFilmName() {
         return filmName;
     }
-
-    @Override
     public String getDirectorsName() {
         return directorsName;
     }
+    public String getThumbnail() {
+        return thumbnail;
+    }
 
-    @Override
     public int getRating() {
         return rating;
     }
-
-    @Override
     public int getReleaseDate() {
         return releaseDate;
     }
+
+
 
     @Override
     public void bind(Film film) {
 
         String _filmName = film.getFilm_name();
         String _directorsName =film.getDirectors_name();
+        String _thumbnail =film.getImageUrl();
+
         int _rating = film.getRating();
         int _releaseDate = film.getRelease_date();
 
@@ -102,11 +116,13 @@ public class FilmsAddFilmView extends LinearLayout implements FilmActivity.Dialo
         textDirectorsName.setText(_directorsName);
         textRating.setText(String.valueOf(_rating) );
         textReleasedate.setText(String.valueOf(_releaseDate)  );
+        textThumbnail.setText(_thumbnail);
 
         filmName = _filmName;
         directorsName = _directorsName;
         rating= _rating;
         releaseDate= _releaseDate;
+        thumbnail = _thumbnail;
 
 
     }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class FilmRepository implements FRepository<Film> {
 
@@ -34,7 +35,7 @@ public class FilmRepository implements FRepository<Film> {
         return mRealm.where(Film.class).findAll();
     }
 
-    public static List<Film> getAllAsync() {
+    public static RealmResults<Film> getAllAsync() {
         return mRealm.where(Film.class).findAllAsync();
     }
 
@@ -87,7 +88,7 @@ public class FilmRepository implements FRepository<Film> {
     }
 
     public List<Film> searchByDirector(String directorsName){
-        return mRealm.where(Film.class).contains("direcors_name",directorsName).findAll();
+        return mRealm.where(Film.class).contains("directors_name",directorsName).findAll();
     }
 
     public List<Film> getTopFilms(int count){
