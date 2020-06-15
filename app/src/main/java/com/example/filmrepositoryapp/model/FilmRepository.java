@@ -8,8 +8,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
-
-public class FilmRepository implements FRepository<Film> {
+//implements FRepository<Film>
+public class FilmRepository  {
 
     private static final String TAG="FilmRepository";
 
@@ -18,7 +18,7 @@ public class FilmRepository implements FRepository<Film> {
     private static RealmConfiguration realmConfiguration;
 
     public FilmRepository(){
-        realm = Realm.getDefaultInstance();
+      //  realm = Realm.getDefaultInstance();
         Number max = realm.where(Film.class).max("id");
         sPrimaryId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
 
@@ -29,6 +29,7 @@ public class FilmRepository implements FRepository<Film> {
         return realm.where(Film.class).equalTo("id",id).findFirst();
     }
 
+/*
     @Override
     public Film getItem(long id) {
         Film film = getRealmAssosiatedFilm(id);
@@ -82,6 +83,7 @@ public class FilmRepository implements FRepository<Film> {
         realm.copyToRealmOrUpdate(film);
         realm.commitTransaction();
     }
+*/
 
 /*
     Добавьте возможность поиска по диапазону года выхода фильма, метод List<Film> searchInBounds(int startYear, int endYear);

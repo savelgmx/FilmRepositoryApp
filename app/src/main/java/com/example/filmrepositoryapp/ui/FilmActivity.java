@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.filmrepositoryapp.FilmPresenter;
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
+import com.example.filmrepositoryapp.model.FilmRepository;
 import com.example.filmrepositoryapp.model.RealmManager;
 
 import butterknife.BindView;
@@ -51,6 +52,9 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
     protected void onCreate(Bundle savedInstanceState) {
         Realm.init(getApplicationContext());
         RealmManager.initializeRealmConfig();
+        //   FilmRepository.initializeRealmConfig();
+
+
         super.onCreate(savedInstanceState);
         FilmScopeListener fragment = (FilmScopeListener) getSupportFragmentManager().findFragmentByTag("SCOPE_LISTENER");
         if(fragment == null) {
@@ -59,7 +63,8 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
         }
 
         //get realm instance
-        Realm realm = RealmManager.getRealm();
+       Realm realm = RealmManager.getRealm();
+        // Realm realm = FilmRepository.getRealm();
 
         //get presenter instance
         filmPresenter = fragment.getPresenter();
