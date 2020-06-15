@@ -64,7 +64,14 @@ public class FilmsViewHolder extends RecyclerView.ViewHolder{
         }
 
 
-
+        //remove single match from realm
+        card.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                filmPresenter.deleteFilmById(id);
+                return false;
+            }
+        });
 
         //update single match from realm
         card.setOnClickListener(new View.OnClickListener() {

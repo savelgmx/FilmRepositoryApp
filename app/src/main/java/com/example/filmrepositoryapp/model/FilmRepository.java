@@ -1,54 +1,60 @@
 package com.example.filmrepositoryapp.model;
 
+import android.util.Log;
+
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 
 public class FilmRepository implements FRepository<Film> {
 
-    private static Realm mRealm;
+    private static final String TAG="FilmRepository";
+
+    private static Realm realm;
     private static AtomicLong sPrimaryId;
+    private static RealmConfiguration realmConfiguration;
 
     public FilmRepository(){
-        mRealm = Realm.getDefaultInstance();
-        Number max = mRealm.where(Film.class).max("id");
+        realm = Realm.getDefaultInstance();
+        Number max = realm.where(Film.class).max("id");
         sPrimaryId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
 
     }
 
 
     private Film getRealmAssosiatedFilm(long id) {
-        return mRealm.where(Film.class).equalTo("id",id).findFirst();
+        return realm.where(Film.class).equalTo("id",id).findFirst();
     }
 
     @Override
     public Film getItem(long id) {
         Film film = getRealmAssosiatedFilm(id);
-        return film != null?mRealm.copyFromRealm(film) :null;
+        return film != null? realm.copyFromRealm(film) :null;
 
     }
 
     @Override
     public List<Film> getAll() {
-        return mRealm.where(Film.class).findAll();
+        return realm.where(Film.class).findAll();
     }
 
     public static RealmResults<Film> getAllAsync() {
-        return mRealm.where(Film.class).findAllAsync();
+        return realm.where(Film.class).findAllAsync();
     }
 
     private Film getRealmAssociatedFilm(long id) {
-        return mRealm.where(Film.class).equalTo("id", id).findFirst();
+        return realm.where(Film.class).equalTo("id", id).findFirst();
     }
 
     @Override
     public long insertItem(Film film) {
         film.setId(sPrimaryId.incrementAndGet());
-        mRealm.beginTransaction();
-        mRealm.copyToRealm(film);
-        mRealm.commitTransaction();
+        realm.beginTransaction();
+        realm.copyToRealm(film);
+        realm.commitTransaction();
         return sPrimaryId.longValue();
     }
 
@@ -56,7 +62,7 @@ public class FilmRepository implements FRepository<Film> {
     @Override
     public boolean deleteItem(long id) {
         boolean isDeleteSuccessful;
-        mRealm.beginTransaction();
+        realm.beginTransaction();
         Film film = getRealmAssociatedFilm(id);
 
         if (film != null) {
@@ -65,16 +71,16 @@ public class FilmRepository implements FRepository<Film> {
         } else {
             isDeleteSuccessful = false;
         }
-        mRealm.commitTransaction();
+        realm.commitTransaction();
         return isDeleteSuccessful;
     }
 
 
     @Override
     public void updateItem(Film film) {
-        mRealm.beginTransaction();
-        mRealm.copyToRealmOrUpdate(film);
-        mRealm.commitTransaction();
+        realm.beginTransaction();
+        realm.copyToRealmOrUpdate(film);
+        realm.commitTransaction();
     }
 
 /*
@@ -84,15 +90,68 @@ public class FilmRepository implements FRepository<Film> {
     Добавьте возможность получить топ фильмов по рейтингу (double поле)List<Film> getTopFilms(int count)
 */
     public List<Film> searchInBounds(int startYear,int endYear){
-        return mRealm.where(Film.class).between("release_date",startYear,endYear).findAll();
+        return realm.where(Film.class).between("release_date",startYear,endYear).findAll();
     }
 
     public List<Film> searchByDirector(String directorsName){
-        return mRealm.where(Film.class).contains("directors_name",directorsName).findAll();
+        return realm.where(Film.class).contains("directors_name",directorsName).findAll();
     }
 
     public List<Film> getTopFilms(int count){
-        return mRealm.where(Film.class).equalTo("rating",count).findAll();
+        return realm.where(Film.class).equalTo("rating",count).findAll();
+    }
+  /*
+  здесь добавляем иниуиализцию реалм для заполнения начальнвми данными
+  и для подсчета числа экземляров дааного объекта
+   * */
+  public static void initializeRealmConfig() {
+      if(realmConfiguration == null) {
+          Log.d(TAG, "Initializing Realm configuration.");
+          setRealmConfiguration(new RealmConfiguration.Builder() //
+                  .initialData(new RealmInitialData())
+                  .deleteRealmIfMigrationNeeded()
+                  .build());
+      }
+  }
+
+    public static void setRealmConfiguration(RealmConfiguration realmConfiguration) {
+        FilmRepository.realmConfiguration = realmConfiguration;
+        Realm.setDefaultConfiguration(realmConfiguration);
+    }
+
+    private static int activityCount = 0;
+
+    public static Realm getRealm() {
+        return realm;
+    }
+
+    public static void incrementCount() {
+        if(activityCount == 0) {
+            if(realm != null) {
+                if(!realm.isClosed()) {
+                    Log.w(TAG, "Unexpected open Realm found.");
+                    realm.close();
+                }
+            }
+            Log.d(TAG, "Incrementing Activity Count [0]: opening Realm.");
+            realm = Realm.getDefaultInstance();
+        }
+        activityCount++;
+        Log.d(TAG, "Increment: Count [" + activityCount + "]");
+    }
+
+    public static void decrementCount() {
+        activityCount--;
+        Log.d(TAG, "Decrement: Count [" + activityCount + "]");
+        if(activityCount <= 0) {
+            Log.d(TAG, "Decrementing Activity Count: closing Realm.");
+            activityCount = 0;
+            realm.close();
+            if(Realm.compactRealm(realmConfiguration)) {
+                Log.d(TAG, "Realm compacted successfully.");
+            }
+            realm = null;
+        }
     }
 
 }
