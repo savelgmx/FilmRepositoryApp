@@ -3,7 +3,8 @@ package com.example.filmrepositoryapp.ui;
 import androidx.fragment.app.Fragment;
 
 import com.example.filmrepositoryapp.FilmPresenter;
-import com.example.filmrepositoryapp.model.RealmManager;
+import com.example.filmrepositoryapp.model.FilmRepository;
+
 
 public class FilmScopeListener extends Fragment {
 
@@ -11,13 +12,13 @@ public class FilmScopeListener extends Fragment {
 
     public FilmScopeListener() {
         setRetainInstance(true);
-        RealmManager.incrementCount();
+        FilmRepository.incrementCount();
         filmsPresenter = new FilmPresenter();
     }
 
     @Override
     public void onDestroy() {
-        RealmManager.decrementCount();
+         FilmRepository.decrementCount();
         super.onDestroy();
     }
 

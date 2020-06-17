@@ -7,8 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmResults;
-//implements FRepository<Film>
+
 public class FilmRepository  {
 
     private static final String TAG="FilmRepository";
@@ -18,7 +17,9 @@ public class FilmRepository  {
     private static RealmConfiguration realmConfiguration;
 
     public FilmRepository(){
-      //  realm = Realm.getDefaultInstance();
+
+
+        realm = Realm.getDefaultInstance();
         Number max = realm.where(Film.class).max("id");
         sPrimaryId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
 
@@ -107,8 +108,16 @@ public class FilmRepository  {
   и для подсчета числа экземляров дааного объекта
    * */
   public static void initializeRealmConfig() {
+
+      //сюда переносим код из конструктрора
+      realm = Realm.getDefaultInstance();
+      Number max = realm.where(Film.class).max("id");
+      sPrimaryId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
+
+
+
       if(realmConfiguration == null) {
-          Log.d(TAG, "Initializing Realm configuration.");
+          Log.d(TAG, "Film Repository Initializing Realm configuration.");
           setRealmConfiguration(new RealmConfiguration.Builder() //
                   .initialData(new RealmInitialData())
                   .deleteRealmIfMigrationNeeded()

@@ -18,7 +18,6 @@ import com.example.filmrepositoryapp.FilmPresenter;
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
 import com.example.filmrepositoryapp.model.FilmRepository;
-import com.example.filmrepositoryapp.model.RealmManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,8 +50,7 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Realm.init(getApplicationContext());
-        RealmManager.initializeRealmConfig();
-        //   FilmRepository.initializeRealmConfig();
+         FilmRepository.initializeRealmConfig();
 
 
         super.onCreate(savedInstanceState);
@@ -63,8 +61,7 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
         }
 
         //get realm instance
-       Realm realm = RealmManager.getRealm();
-        // Realm realm = FilmRepository.getRealm();
+          Realm realm = FilmRepository.getRealm();
 
         //get presenter instance
         filmPresenter = fragment.getPresenter();
@@ -84,7 +81,6 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
         // get all persisted objects
         // changes will be reflected automatically
         recycler.setAdapter(new FilmAdapter(realm.where(Film.class).findAllAsync()));
-
         if(savedInstanceState == null) {
             Toast.makeText(this, "ДЛИННОЕ НАЖАТИЕ УДАЛЯЕТ ФИЛЬМ ИЗ СПИСКА!" +
                     "КОРОТКОЕ-редактирует!", Toast.LENGTH_LONG).show();

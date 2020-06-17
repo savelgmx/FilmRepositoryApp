@@ -4,7 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 
 import com.example.filmrepositoryapp.model.Film;
-import com.example.filmrepositoryapp.model.RealmManager;
+import com.example.filmrepositoryapp.model.FilmRepository;
+//import com.example.filmrepositoryapp.model.RealmManager;
 
 import io.realm.Realm;
 
@@ -79,7 +80,7 @@ public class FilmPresenter {
             if(filmName == null || "".equals(filmName.trim())) {
                 viewContract.showMissingFilmName();
             } else {
-                Realm realm = RealmManager.getRealm();
+                Realm realm = FilmRepository.getRealm();
                 realm.executeTransactionAsync(new Realm.Transaction() {
                     @Override
                     public void execute(Realm realm) {
@@ -101,7 +102,7 @@ public class FilmPresenter {
     }
 
     public void deleteFilmById(final long id) {
-        Realm realm = RealmManager.getRealm();
+        Realm realm = FilmRepository.getRealm();
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -114,7 +115,7 @@ public class FilmPresenter {
     }
 
     public void editFilm(final ViewContract.DialogContract dialogContract, final long id) {
-        Realm realm = RealmManager.getRealm();
+        Realm realm = FilmRepository.getRealm();
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
