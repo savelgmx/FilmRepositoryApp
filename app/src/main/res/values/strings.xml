@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FilmRepositoryApp</string>
     <string name="add_record">Добавить запись</string>
-    <string name="edit_record">Редактировать запись</string>
+    <string name="searchByDirectorsName">Поиск по режиссеру фильма</string>
     <string name="action_exit">Выход</string>
     <string name="films">Список фильмов</string>
     <string name="filmName">Название Фильма</string>
@@ -12,4 +12,5 @@
     <string name="entry_not_saved">Не сохранен</string>
     <string name="edit_film">Редактировать фильм</string>
     <string name="image">Image URL</string>
+    <string name="searchByName">Поиск по названию</string>
 </resources>

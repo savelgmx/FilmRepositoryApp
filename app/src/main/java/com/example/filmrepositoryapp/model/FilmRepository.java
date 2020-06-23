@@ -7,8 +7,9 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
 
-public class FilmRepository  {
+public class FilmRepository implements FRepository  {
 
     private static final String TAG="FilmRepository";
 
@@ -30,7 +31,6 @@ public class FilmRepository  {
         return realm.where(Film.class).equalTo("id",id).findFirst();
     }
 
-/*
     @Override
     public Film getItem(long id) {
         Film film = getRealmAssosiatedFilm(id);
@@ -43,6 +43,21 @@ public class FilmRepository  {
         return realm.where(Film.class).findAll();
     }
 
+    @Override
+    public long insertItem(Object o) {
+        return 0;
+    }
+
+    @Override
+    public boolean deleteItem(long id) {
+        return false;
+    }
+
+    @Override
+    public void updateItem(Object o) {
+
+    }
+
     public static RealmResults<Film> getAllAsync() {
         return realm.where(Film.class).findAllAsync();
     }
@@ -50,7 +65,7 @@ public class FilmRepository  {
     private Film getRealmAssociatedFilm(long id) {
         return realm.where(Film.class).equalTo("id", id).findFirst();
     }
-
+/*
     @Override
     public long insertItem(Film film) {
         film.setId(sPrimaryId.incrementAndGet());

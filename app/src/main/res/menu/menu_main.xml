@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/search"
-        android:title="@string/add_record"
+        android:id="@+id/searchByName"
+        android:title="@string/searchByName"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/actionEditRecord"
-        android:title="@string/edit_record"
+        android:id="@+id/searchByDirectorsName"
+        android:title="@string/searchByDirectorsName"
         app:showAsAction="never" />
 
     <item

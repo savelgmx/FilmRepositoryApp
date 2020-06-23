@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -91,10 +93,9 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
     }
 
 
-/*
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        menu.findItem(R.id.actionAddRecord).setVisible(false);
+        menu.findItem(R.id.searchByName).setVisible(false);
         return true;
     }
 
@@ -102,7 +103,6 @@ public class FilmActivity extends AppCompatActivity  implements FilmPresenter.Vi
     public boolean onOptionsItemSelected(MenuItem item) {
         return false;
     }
-*/
 
     @Override
     protected void onDestroy() {
