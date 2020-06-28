@@ -3,6 +3,9 @@ package com.example.filmrepositoryapp.ui;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
+
 import androidx.annotation.NonNull;
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
@@ -12,7 +15,7 @@ import io.realm.RealmRecyclerViewAdapter;
 import io.realm.RealmResults;
 
 
-public class FilmAdapter extends RealmRecyclerViewAdapter<Film, FilmsViewHolder> {
+public class FilmAdapter extends RealmRecyclerViewAdapter<Film, FilmsViewHolder> implements Filterable {
 
     @NonNull
     private final List<Film> mFilms = new ArrayList<>();
@@ -41,11 +44,11 @@ public class FilmAdapter extends RealmRecyclerViewAdapter<Film, FilmsViewHolder>
     }
 
 
-
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
 }
-
-
-
 
 
 
