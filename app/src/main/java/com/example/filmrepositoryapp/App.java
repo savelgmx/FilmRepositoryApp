@@ -20,10 +20,14 @@ public class App extends Application {
         super.onCreate();
         Realm.init(this);
 
+/*
         Toothpick.setConfiguration(Configuration.forProduction().disableReflection());
         Toothpick.setConfiguration(Configuration.forDevelopment().preventMultipleRootScopes());
-        MemberInjectorRegistryLocator.setRootRegistry(new com.example.alien.course04task02.MemberInjectorRegistry());
-        FactoryRegistryLocator.setRootRegistry(new com.example.alien.course04task02.FactoryRegistry());
+*/
+/*
+        MemberInjectorRegistryLocator.setRootRegistry(new com.example.filmrepositoryapp.MemberInjectorRegistry());
+        FactoryRegistryLocator.setRootRegistry(new com.example.filmrepositoryapp.FactoryRegistry());
+*/
         Scope scope = Toothpick.openScope("Application");
         scope.installModules(new ApplicationModule(this));
 
