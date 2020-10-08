@@ -43,20 +43,18 @@ public class FilmRepository implements FRepository  {
         return realm.where(Film.class).findAll();
     }
 
-    @Override
-    public long insertItem(Object o) {
-        return 0;
-    }
+/*
+ //   @Override
+  // public long insertItem(Object o) { return 0; }
 
-    @Override
-    public boolean deleteItem(long id) {
-        return false;
-    }
+ //   @Override
+  //  public boolean deleteItem(long id) {return false;}
 
     @Override
     public void updateItem(Object o) {
 
     }
+*/
 
     public static RealmResults<Film> getAllAsync() {
         return realm.where(Film.class).findAllAsync();
@@ -65,7 +63,7 @@ public class FilmRepository implements FRepository  {
     private Film getRealmAssociatedFilm(long id) {
         return realm.where(Film.class).equalTo("id", id).findFirst();
     }
-/*
+
     @Override
     public long insertItem(Film film) {
         film.setId(sPrimaryId.incrementAndGet());
@@ -99,7 +97,6 @@ public class FilmRepository implements FRepository  {
         realm.copyToRealmOrUpdate(film);
         realm.commitTransaction();
     }
-*/
 
 /*
     Добавьте возможность поиска по диапазону года выхода фильма, метод List<Film> searchInBounds(int startYear, int endYear);

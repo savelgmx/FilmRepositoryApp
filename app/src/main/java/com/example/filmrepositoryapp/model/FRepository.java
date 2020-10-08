@@ -2,7 +2,7 @@ package com.example.filmrepositoryapp.model;
 
 import java.util.List;
 
-public interface FRepository<Film> {
+public interface FRepository {
     Film getItem(long id);
 
     List<Film> getAll();
