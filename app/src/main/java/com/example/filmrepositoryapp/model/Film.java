@@ -11,9 +11,22 @@ public class Film extends RealmObject {
     @Index
     private String directors_name; //имя режиссера
     private int release_date;//дата выхода фильма т.к.это обычно год без месяцев и дат довольно целого числа
-    private int rating;//рейтинг фильма
-    private String description;//описание фильма
+    private double rating;//рейтинг фильма
     private String image_url;//ссылка на картинку постер фильма
+
+   // public Film(){};
+
+/*
+    public Film(Long id, String film_name, String directors_name,int release_date, double rating,String image_url) {
+        this.id = id;
+        this.film_name = film_name;
+        this.directors_name = directors_name;
+        this.release_date = release_date;
+        this.rating = rating;
+        this.image_url=image_url;
+    }
+*/
+
     //теперь записываенм методы геттеры/сеттеры для заполнения полей
     public void setId(long id) {
         this.id = id;
@@ -39,15 +52,13 @@ public class Film extends RealmObject {
     public void setRelease_date(int release_date ) { this.release_date = release_date; }
     public int getRelease_date() { return  release_date; }
 
-    public void  setRating(int rating) {
+    public void  setRating(double rating) {
         this.rating = rating;
     }
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setDescription(String s) { this.description=s; }
-    public String getDescription(){return description;}
 
     public String getImageUrl() {
         return image_url;

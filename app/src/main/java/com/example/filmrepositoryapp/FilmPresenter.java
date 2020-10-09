@@ -91,8 +91,7 @@ public class FilmPresenter {
                         }
                         film.setId(id);
                         film.setDirectors_name(directorsName);
-                        film.setDescription("");
-                        film.setRating(rating);
+                         film.setRating(rating);
                         film.setFilm_name(filmName);
                         realm.insertOrUpdate(film);
                     }

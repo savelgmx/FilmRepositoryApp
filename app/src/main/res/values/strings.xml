@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">FilmRepositoryApp</string>
     <string name="add_record">Добавить запись</string>
-    <string name="start_greeting">Для изменения - короткое нажитие  Для редактирования - длинное</string>
+    <string name="start_greeting">Для изменения - короткое нажатие  Для редактирования - длинное</string>
     <string name="searchByDirectorsName">Поиск по режиссеру фильма</string>
     <string name="action_exit">Выход</string>
     <string name="films">Список фильмов</string>

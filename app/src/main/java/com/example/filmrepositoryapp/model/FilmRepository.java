@@ -14,7 +14,7 @@ public class FilmRepository implements FRepository  {
     private static final String TAG="FilmRepository";
 
     private static Realm realm;
-    private static AtomicLong sPrimaryId;
+    private static AtomicLong currentId;
     private static RealmConfiguration realmConfiguration;
 
     public FilmRepository(){
@@ -22,8 +22,12 @@ public class FilmRepository implements FRepository  {
 
         realm = Realm.getDefaultInstance();
         Number max = realm.where(Film.class).max("id");
-        sPrimaryId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
+        currentId = max ==null? new AtomicLong(0):new AtomicLong(max.longValue());
 
+          if (max != null) {
+            currentId.set(max.longValue());
+        } else {
+            currentId.set(0);
     }
 
 
@@ -43,18 +47,6 @@ public class FilmRepository implements FRepository  {
         return realm.where(Film.class).findAll();
     }
 
-/*
- //   @Override
-  // public long insertItem(Object o) { return 0; }
-
- //   @Override
-  //  public boolean deleteItem(long id) {return false;}
-
-    @Override
-    public void updateItem(Object o) {
-
-    }
-*/
 
     public static RealmResults<Film> getAllAsync() {
         return realm.where(Film.class).findAllAsync();
