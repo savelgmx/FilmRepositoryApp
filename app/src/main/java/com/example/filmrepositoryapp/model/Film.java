@@ -16,7 +16,6 @@ public class Film extends RealmObject {
 
    // public Film(){};
 
-/*
     public Film(Long id, String film_name, String directors_name,int release_date, double rating,String image_url) {
         this.id = id;
         this.film_name = film_name;
@@ -25,7 +24,6 @@ public class Film extends RealmObject {
         this.rating = rating;
         this.image_url=image_url;
     }
-*/
 
     //теперь записываенм методы геттеры/сеттеры для заполнения полей
     public void setId(long id) {

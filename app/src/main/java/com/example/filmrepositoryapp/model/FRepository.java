@@ -18,11 +18,11 @@ public interface FRepository {
     List<Film> search(String query);
 
     List<Film> searchInBounds(int startYear, int endYear);
-    List<Film> searchByDirectorsName(String directors_name);
+    List<Film> searchByDirector(String directors_name);
 
     List<Film> getTopFilms(int count); //выбрать Т фильмов с наивысщим рейтингом
 
-    long createFilmAndSave(String name, String director, int year, double rating);
+    long createFilmAndSave(String film_name, String directors_name, int year, double rating,String image_url);
     void createFilmAndUpdate(long id, String film_name, String directors_name, int year, double rating,String image_url);
 
     interface IOnFilmDataBaseUpdate {}

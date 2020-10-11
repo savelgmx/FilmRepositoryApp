@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data class="FilmDetailBinding">
+    <variable
+        name="vm"
+        type="com.example.alien.course04task02.ui.filmDetail.FilmDetailViewModel"/>
+
+</data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_save_black_48dp"
+           />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivSave"
+            android:text="Название фильма"
+            />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvName"
+            android:text="@{vm.name}"
+            />
+
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etName"
+            android:text="Год выпуска" />
+
+        <EditText
+            android:id="@+id/etYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvYear"
+            android:text="@{vm.year}"
+           />
+
+        <TextView
+            android:id="@+id/tvDirector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etYear"
+            android:text="Режиссер" />
+
+        <EditText
+            android:id="@+id/etDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDirector"
+            android:text="@{vm.director}"
+            />
+
+        <TextView
+            android:id="@+id/tvRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etDirector"
+            android:text="Рейтинг" />
+
+        <EditText
+            android:id="@+id/etRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvRate"
+            android:text="@{vm.rating}"
+            />
+
+    </RelativeLayout>
+</layout>
