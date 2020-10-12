@@ -74,7 +74,7 @@ public abstract class BaseViewModel extends ViewModel {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onFilmDataBaseUpdate(IFilmRepository.IOnFilmDataBaseUpdate event)
+    public void onFilmDataBaseUpdate(FRepository.IOnFilmDataBaseUpdate event)
     {
         updateFromRepository();
     }

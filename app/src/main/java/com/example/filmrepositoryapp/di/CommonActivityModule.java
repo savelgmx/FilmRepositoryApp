@@ -1,9 +1,10 @@
 package com.example.filmrepositoryapp.di;
 
-import android.support.v7.app.AppCompatActivity;
 
-import com.example.alien.course04task02.ui.filmList.ListAllFragment;
-import com.example.alien.course04task02.ui.main.MainFragment;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.filmrepositoryapp.main.MainFragment;
+import com.example.filmrepositoryapp.ui.filmList.ListAllFragment;
 
 import toothpick.config.Module;
 

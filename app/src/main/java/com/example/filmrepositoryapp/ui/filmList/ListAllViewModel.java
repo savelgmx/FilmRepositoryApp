@@ -1,15 +1,16 @@
 package com.example.filmrepositoryapp.ui.filmList;
 
-import com.example.alien.course04task02.data.IFilmRepository;
-import com.example.alien.course04task02.data.model.Film;
-import com.example.alien.course04task02.ui.common.BaseViewModel;
+
+import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.model.FRepository;
+import com.example.filmrepositoryapp.model.Film;
 import com.google.gson.Gson;
 
 import java.util.List;
 
 public class ListAllViewModel extends BaseViewModel {
 
-    public ListAllViewModel(IFilmRepository repository, Gson gson) {
+    public ListAllViewModel(FRepository repository, Gson gson) {
         super(repository, gson);
         updateFromRepository();
     }

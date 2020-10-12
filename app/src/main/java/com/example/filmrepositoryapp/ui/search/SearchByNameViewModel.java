@@ -1,16 +1,16 @@
 package com.example.filmrepositoryapp.ui.search;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 
-import com.example.alien.course04task02.data.IFilmRepository;
-import com.example.alien.course04task02.ui.common.BaseViewModel;
+import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.model.FRepository;
 import com.google.gson.Gson;
 
 public class SearchByNameViewModel extends BaseViewModel {
 
     private MutableLiveData<String> mSearchByNameQuery = new MutableLiveData<>();
 
-    public SearchByNameViewModel(IFilmRepository repository, Gson gson) {
+    public SearchByNameViewModel(FRepository repository, Gson gson) {
         super(repository, gson);
         updateFromRepository();
     }

@@ -2,9 +2,10 @@ package com.example.filmrepositoryapp.di;
 
 import android.app.Application;
 
-import com.example.alien.course04task02.data.IFilmRepository;
-import com.example.alien.course04task02.data.RealmFilmRepository;
-import com.example.alien.course04task02.ui.common.ViewModelCustomFactory;
+
+import com.example.filmrepositoryapp.common.ViewModelCustomFactory;
+import com.example.filmrepositoryapp.model.FRepository;
+import com.example.filmrepositoryapp.model.FilmRepository;
 import com.google.gson.Gson;
 
 import toothpick.config.Module;
@@ -16,7 +17,7 @@ public class ApplicationModule extends Module {
     public ApplicationModule(Application application) {
         this.mApplication = application;
 
-        bind(IFilmRepository.class).toInstance(new RealmFilmRepository());
+        bind(FRepository.class).toInstance(new FilmRepository());
         bind(Gson.class).toInstance(new Gson());
         bind(ViewModelCustomFactory.class).toProvider(ViewModelCustomFactoryProvider.class).providesSingletonInScope();
         bind(Application.class).toInstance(mApplication);

@@ -1,22 +1,25 @@
 package com.example.filmrepositoryapp.common;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.support.annotation.NonNull;
 
-import com.example.alien.course04task02.data.IFilmRepository;
-import com.example.alien.course04task02.ui.filmList.ListAllViewModel;
-import com.example.alien.course04task02.ui.search.SearchByDirectorViewModel;
-import com.example.alien.course04task02.ui.search.SearchByNameViewModel;
-import com.example.alien.course04task02.ui.search.SearchByTopViewModel;
-import com.example.alien.course04task02.ui.search.SearchByYearViewModel;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+
+import com.example.filmrepositoryapp.model.FRepository;
+import com.example.filmrepositoryapp.ui.filmList.ListAllViewModel;
+import com.example.filmrepositoryapp.ui.search.SearchByDirectorViewModel;
+import com.example.filmrepositoryapp.ui.search.SearchByNameViewModel;
+import com.example.filmrepositoryapp.ui.search.SearchByTopViewModel;
+import com.example.filmrepositoryapp.ui.search.SearchByYearViewModel;
 import com.google.gson.Gson;
 
 public class ViewModelCustomFactory implements ViewModelProvider.Factory {
-    private IFilmRepository mRepository;
+    private FRepository mRepository;
     private Gson mGson;
 
-    public ViewModelCustomFactory(IFilmRepository repository, Gson gson) {
+    public ViewModelCustomFactory(FRepository repository, Gson gson) {
 
         mRepository = repository;
         mGson = gson;
