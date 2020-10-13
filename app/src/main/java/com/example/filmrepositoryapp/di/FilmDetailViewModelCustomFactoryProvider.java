@@ -1,7 +1,8 @@
 package com.example.filmrepositoryapp.di;
 
-import com.example.alien.course04task02.data.IFilmRepository;
-import com.example.alien.course04task02.ui.filmDetail.FilmDetailViewModelCustomFactory;
+
+import com.example.filmrepositoryapp.model.FRepository;
+import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailViewModelCustomFactory;
 import com.google.gson.Gson;
 
 import javax.inject.Inject;
@@ -10,12 +11,12 @@ import javax.inject.Provider;
 
 public class FilmDetailViewModelCustomFactoryProvider implements Provider<FilmDetailViewModelCustomFactory> {
 
-    protected IFilmRepository mRepository;
+    protected FRepository mRepository;
     private Gson mGson;
     private Long mFilmId;
 
     @Inject
-    public FilmDetailViewModelCustomFactoryProvider(IFilmRepository mRepository, Gson gson, @Named("FilmId") Long filmId) {
+    public FilmDetailViewModelCustomFactoryProvider(FRepository mRepository, Gson gson, @Named("FilmId") Long filmId) {
         this.mRepository = mRepository;
         this.mGson = gson;
         this.mFilmId = filmId;

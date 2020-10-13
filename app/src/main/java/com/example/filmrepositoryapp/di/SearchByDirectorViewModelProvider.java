@@ -1,10 +1,11 @@
 package com.example.filmrepositoryapp.di;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v7.app.AppCompatActivity;
 
-import com.example.alien.course04task02.ui.common.ViewModelCustomFactory;
-import com.example.alien.course04task02.ui.search.SearchByDirectorViewModel;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.filmrepositoryapp.common.ViewModelCustomFactory;
+import com.example.filmrepositoryapp.ui.search.SearchByDirectorViewModel;
 
 import javax.inject.Inject;
 import javax.inject.Provider;

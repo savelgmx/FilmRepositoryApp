@@ -1,10 +1,11 @@
 package com.example.filmrepositoryapp.di;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v4.app.DialogFragment;
 
-import com.example.alien.course04task02.ui.filmDetail.FilmDetailViewModel;
-import com.example.alien.course04task02.ui.filmDetail.FilmDetailViewModelCustomFactory;
+import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailViewModel;
+import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailViewModelCustomFactory;
 
 import javax.inject.Inject;
 import javax.inject.Named;

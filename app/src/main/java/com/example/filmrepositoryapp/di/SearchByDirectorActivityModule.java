@@ -1,11 +1,10 @@
 package com.example.filmrepositoryapp.di;
 
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.alien.course04task02.R;
-import com.example.alien.course04task02.ui.common.BaseViewModel;
-
+import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.common.BaseViewModel;
 
 public class SearchByDirectorActivityModule extends CommonActivityModule {
 

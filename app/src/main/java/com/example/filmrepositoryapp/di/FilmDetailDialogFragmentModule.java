@@ -1,10 +1,9 @@
 package com.example.filmrepositoryapp.di;
 
+import androidx.fragment.app.DialogFragment;
 
-import android.support.v4.app.DialogFragment;
-
-import com.example.alien.course04task02.ui.filmDetail.FilmDetailViewModel;
-import com.example.alien.course04task02.ui.filmDetail.FilmDetailViewModelCustomFactory;
+import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailViewModel;
+import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailViewModelCustomFactory;
 
 import toothpick.config.Module;
 

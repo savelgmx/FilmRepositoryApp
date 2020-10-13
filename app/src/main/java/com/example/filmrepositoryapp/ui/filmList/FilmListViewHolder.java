@@ -1,13 +1,14 @@
 package com.example.filmrepositoryapp.ui.filmList;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.alien.course04task02.R;
-import com.example.alien.course04task02.data.model.Film;
-import com.example.alien.course04task02.utils.StringUtils;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.model.Film;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
