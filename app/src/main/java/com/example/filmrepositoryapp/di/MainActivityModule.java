@@ -5,6 +5,7 @@ package com.example.filmrepositoryapp.di;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.common.BaseViewModel;
 
 

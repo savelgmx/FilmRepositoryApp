@@ -1,11 +1,12 @@
 package com.example.filmrepositoryapp.ui.filmDetail;
 
-import android.arch.lifecycle.MutableLiveData;
 
-import com.example.alien.course04task02.R;
-import com.example.alien.course04task02.data.IFilmRepository;
-import com.example.alien.course04task02.data.model.Film;
-import com.example.alien.course04task02.ui.common.BaseViewModel;
+import androidx.lifecycle.MutableLiveData;
+
+import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.model.FRepository;
+import com.example.filmrepositoryapp.model.Film;
 import com.google.gson.Gson;
 
 import timber.log.Timber;
@@ -19,7 +20,7 @@ public class FilmDetailViewModel extends BaseViewModel {
     private Long mFilmId;
     private int mTitleId;
 
-    public FilmDetailViewModel(IFilmRepository repository, Gson gson, Long filmId) {
+    public FilmDetailViewModel(FRepository repository, Gson gson, Long filmId) {
         super(repository, gson);
         mIsSaved.postValue(false);
         mFilmId = filmId;

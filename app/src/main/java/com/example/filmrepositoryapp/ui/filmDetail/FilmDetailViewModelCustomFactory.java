@@ -1,18 +1,19 @@
 package com.example.filmrepositoryapp.ui.filmDetail;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.support.annotation.NonNull;
 
-import com.example.alien.course04task02.data.IFilmRepository;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.filmrepositoryapp.model.FRepository;
 import com.google.gson.Gson;
 
 public class FilmDetailViewModelCustomFactory implements ViewModelProvider.Factory {
-    private IFilmRepository mRepository;
+    private FRepository mRepository;
     private Gson mGson;
     private Long mFilmId;
 
-    public FilmDetailViewModelCustomFactory(IFilmRepository repository, Gson gson, Long filmId) {
+    public FilmDetailViewModelCustomFactory(FRepository repository, Gson gson, Long filmId) {
 
         this.mRepository = repository;
         this.mGson = gson;
