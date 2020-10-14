@@ -4,7 +4,8 @@
     <data class="SearchByDirectorBinding">
         <variable
             name="vm"
-            type="com.example.alien.course04task02.ui.search.SearchByDirectorViewModel"
+
+            type="com.example.filmrepositoryapp.ui.search.SearchByDirectorViewModel"
             />
     </data>
 

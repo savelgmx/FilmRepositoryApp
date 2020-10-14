@@ -34,9 +34,9 @@ public class FilmDetailViewModel extends BaseViewModel {
 
     private void loadFilm() {
         Film film = mRepository.getItem(mFilmId);
-        mName.postValue(film.getName());
-        mDirector.postValue(film.getDirector());
-        mYear.postValue(String.valueOf(film.getYear()));
+        mName.postValue(film.getFilmName());
+        mDirector.postValue(film.getDirectors_name());
+        mYear.postValue(String.valueOf(film.getRelease_date()));
         mRating.postValue(String.valueOf(film.getRating()));
     }
 
@@ -62,7 +62,7 @@ public class FilmDetailViewModel extends BaseViewModel {
     }
 
 
-    public void apply(String name, String director, String year, String rating) {
+    public void apply(String name, String director, String year, String rating,String image_url) {
         int yearInt = 0;
         double ratingDbl = 0;
         try {
@@ -72,9 +72,10 @@ public class FilmDetailViewModel extends BaseViewModel {
             Timber.d(t);
         }
         if (mFilmId < 0) {
-            mRepository.createFilmAndSave(name, director, yearInt, ratingDbl);
+            //    long createFilmAndSave(String film_name, String directors_name, int year, double rating,String image_url);
+            mRepository.createFilmAndSave(name, director, yearInt, ratingDbl,image_url);
         } else {
-            mRepository.createFilmAndUpdate(mFilmId, name, director, yearInt, ratingDbl);
+            mRepository.createFilmAndUpdate(mFilmId, name, director, yearInt, ratingDbl,image_url);
         }
         mIsSaved.postValue(true);
     }

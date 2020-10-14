@@ -3,7 +3,7 @@ package com.example.filmrepositoryapp.di;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.filmrepositoryapp.main.MainFragment;
+import com.example.filmrepositoryapp.ui.main.MainFragment;
 import com.example.filmrepositoryapp.ui.filmList.ListAllFragment;
 
 import toothpick.config.Module;

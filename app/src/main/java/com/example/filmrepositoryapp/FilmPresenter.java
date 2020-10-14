@@ -92,7 +92,7 @@ public class FilmPresenter {
                         film.setId(id);
                         film.setDirectors_name(directorsName);
                          film.setRating(rating);
-                        film.setFilm_name(filmName);
+                        film.setFilmName(filmName);
                         realm.insertOrUpdate(film);
                     }
                 });
@@ -120,7 +120,7 @@ public class FilmPresenter {
             public void execute(Realm realm) {
                Film film = realm.where(Film.class).equalTo("id", id).findFirst();
                 if(film != null) {
-                    film.setFilm_name(dialogContract.getFilmName());
+                    film.setFilmName(dialogContract.getFilmName());
                     film.setRating(dialogContract.getRating());
                     film.setDirectors_name(dialogContract.getDirectorsName());
                     film.setRelease_date(dialogContract.getReleaseDate());

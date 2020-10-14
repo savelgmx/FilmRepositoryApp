@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.filmrepositoryapp.di.FilmListFragmentModule;
-import com.example.filmrepositoryapp.main.MainActivity;
+import com.example.filmrepositoryapp.ui.main.MainActivity;
 
 import toothpick.Scope;
 import toothpick.Toothpick;

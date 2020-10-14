@@ -2,19 +2,20 @@ package com.example.filmrepositoryapp.ui.filmList;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.alien.course04task02.R;
-import com.example.alien.course04task02.ui.common.BaseFragment;
-import com.example.alien.course04task02.ui.common.BaseViewModel;
-import com.example.alien.course04task02.ui.filmDetail.FilmDetailDialogFragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.common.BaseFragment;
+import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailDialogFragment;
 
 import javax.inject.Inject;
 
@@ -62,9 +63,6 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        //mRealmAdapter = new FilmListRealmAdapter(this);
-
-        //mRealmAdapter.updateData((OrderedRealmCollection<Film>) mViewModel.getFilmList().getValue());
 
         mRecyclerView.setAdapter(mAdapter);
 

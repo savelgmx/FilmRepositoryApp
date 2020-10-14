@@ -9,7 +9,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(1);
         film.setDirectors_name("Robert Zemekis");
-        film.setFilm_name("Forrest Gump");
+        film.setFilmName("Forrest Gump");
         film.setRelease_date(1994);
         film.setRating(10);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg");
@@ -17,7 +17,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(2);
         film.setDirectors_name("Robert Zemekis");
-        film.setFilm_name("Back to the Future");
+        film.setFilmName("Back to the Future");
         film.setRelease_date(1985);
         film.setRating(10);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg");
@@ -25,7 +25,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(3);
         film.setDirectors_name("Robert Zemekis");
-        film.setFilm_name("Back to the Future II");
+        film.setFilmName("Back to the Future II");
         film.setRelease_date(1989);
         film.setRating(10);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BZTMxMGM5MjItNDJhNy00MWI2LWJlZWMtOWFhMjI5ZTQwMWM3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg");
@@ -33,7 +33,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(4);
         film.setDirectors_name("Robert Zemekis");
-        film.setFilm_name("Back to the Future III");
+        film.setFilmName("Back to the Future III");
         film.setRelease_date(1990);
         film.setRating(10);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BYjhlMGYxNmMtOWFmMi00Y2M2LWE5NWYtZTdlMDRlMGEzMDA3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg");
@@ -41,7 +41,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(5);
         film.setDirectors_name("Sergio Leone");
-        film.setFilm_name("Once upon a time in America");
+        film.setFilmName("Once upon a time in America");
         film.setRelease_date(1984);
         film.setRating(50);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BMGFkNWI4MTMtNGQ0OC00MWVmLTk3MTktOGYxN2Y2YWVkZWE2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg");
@@ -49,7 +49,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(6);
         film.setDirectors_name("Sergio Leone");
-        film.setFilm_name("A fistful of dollars");
+        film.setFilmName("A fistful of dollars");
         film.setRelease_date(1964);
         film.setRating(20);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BYjA1MGVlMGItNzgxMC00OWY4LWI4YjEtNTNmYWIzMGUxOGQzXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UY268_CR1,0,182,268_AL_.jpg");
@@ -57,7 +57,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(7);
         film.setDirectors_name("Sergio Leone");
-        film.setFilm_name("For a few dollars more");
+        film.setFilmName("For a few dollars more");
         film.setRelease_date(1965);
         film.setRating(20);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BNWM1NmYyM2ItMTFhNy00NDU0LThlYWUtYjQyYTJmOTY0ZmM0XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg");
@@ -65,7 +65,7 @@ public class RealmInitialData implements Realm.Transaction {
 
         film.setId(8);
         film.setDirectors_name("Sergio Leone");
-        film.setFilm_name("The Good, the Bad and the Ugly");
+        film.setFilmName("The Good, the Bad and the Ugly");
         film.setRelease_date(1966);
         film.setRating(20);
         film.setImageUrl("https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_UX182_CR0,0,182,268_AL_.jpg");

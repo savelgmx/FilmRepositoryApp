@@ -14,7 +14,7 @@ public class Film extends RealmObject {
     private double rating;//рейтинг фильма
     private String image_url;//ссылка на картинку постер фильма
 
-   // public Film(){};
+    public Film(){};
 
     public Film(Long id, String film_name, String directors_name,int release_date, double rating,String image_url) {
         this.id = id;
@@ -33,10 +33,10 @@ public class Film extends RealmObject {
         return id;
     }
 
-    public void setFilm_name(String film_name) {
+    public void setFilmName(String film_name) {
         this.film_name = film_name;
     }
-    public String getFilm_name() {
+    public String getFilmName() {
         return film_name;
     }
 

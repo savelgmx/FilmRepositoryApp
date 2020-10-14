@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.model.Film;
+import com.example.filmrepositoryapp.utils.StringUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,9 +36,9 @@ public class FilmListViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Film film) {
-        mTvName.setText(film.getName());
-        mTvDirector.setText(film.getDirector());
-        mTvYear.setText(String.valueOf(film.getYear()));
+        mTvName.setText(film.getFilmName());
+        mTvDirector.setText(film.getDirectors_name());
+        mTvYear.setText(String.valueOf(film.getRelease_date()));
         mTvRate.setText(StringUtils.rateToString(film.getRating()));
         mId = film.getId();
     }

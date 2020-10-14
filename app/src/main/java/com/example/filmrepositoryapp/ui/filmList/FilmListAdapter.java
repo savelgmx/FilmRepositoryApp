@@ -1,14 +1,16 @@
 package com.example.filmrepositoryapp.ui.filmList;
 
-import android.support.annotation.NonNull;
-import android.support.v7.recyclerview.extensions.ListAdapter;
-import android.support.v7.util.DiffUtil;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.alien.course04task02.R;
-import com.example.alien.course04task02.data.model.Film;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
+
+import com.example.filmrepositoryapp.R;
+import com.example.filmrepositoryapp.model.Film;
 
 
 public class FilmListAdapter extends ListAdapter<Film, FilmListViewHolder> {

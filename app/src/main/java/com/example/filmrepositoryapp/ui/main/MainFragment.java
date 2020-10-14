@@ -1,4 +1,4 @@
-package com.example.filmrepositoryapp.main;
+package com.example.filmrepositoryapp.ui.main;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -15,11 +15,14 @@ import androidx.annotation.Nullable;
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.common.BaseFragment;
 import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailDialogFragment;
 
 import java.io.InputStream;
 import java.util.Scanner;
 
 import javax.inject.Inject;
+
+import timber.log.Timber;
 
 public class MainFragment extends BaseFragment {
 

@@ -1,4 +1,4 @@
-package com.example.filmrepositoryapp.main;
+package com.example.filmrepositoryapp.ui.main;
 
 import android.content.Context;
 import android.content.Intent;
