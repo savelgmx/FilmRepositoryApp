@@ -46,11 +46,13 @@ public class FilmDetailDialogFragment extends DialogFragment {
     @BindView(R.id.etRate)
     protected EditText etRate;
 
+
     private DialogInterface.OnClickListener mOnClickListener = (dialogInterface, i) -> {
         mViewModel.apply(etName.getText().toString(),
                 etDirector.getText().toString(),
                 etYear.getText().toString(),
                 etRate.getText().toString());
+
 
     };
 

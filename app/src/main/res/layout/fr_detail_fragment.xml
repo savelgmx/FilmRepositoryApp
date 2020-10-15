@@ -3,7 +3,7 @@
 <data class="FilmDetailBinding">
     <variable
         name="vm"
-        type="com.example.alien.course04task02.ui.filmDetail.FilmDetailViewModel"/>
+        type="com.example.filmrepositoryapp.ui.filmDetail.FilmDetailViewModel"/>
 
 </data>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
