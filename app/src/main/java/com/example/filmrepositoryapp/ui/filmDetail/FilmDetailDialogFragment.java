@@ -48,11 +48,13 @@ public class FilmDetailDialogFragment extends DialogFragment {
 
 
     private DialogInterface.OnClickListener mOnClickListener = (dialogInterface, i) -> {
+/*
         mViewModel.apply(etName.getText().toString(),
                 etDirector.getText().toString(),
                 etYear.getText().toString(),
                 etRate.getText().toString());
 
+*/
 
     };
 

@@ -11,10 +11,19 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.ViewDataBinding;
 
+
+import com.example.filmrepositoryapp.BR;
 import com.example.filmrepositoryapp.R;
 import com.example.filmrepositoryapp.common.BaseFragment;
 import com.example.filmrepositoryapp.common.BaseViewModel;
+
+import com.example.filmrepositoryapp.databinding.MainBinding;
+import com.example.filmrepositoryapp.databinding.SearchByDirectorBinding;
+import com.example.filmrepositoryapp.databinding.SearchByNameBinding;
+import com.example.filmrepositoryapp.databinding.SearchByTopBinding;
+import com.example.filmrepositoryapp.databinding.SearchByYearBinding;
 import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailDialogFragment;
 
 import java.io.InputStream;
