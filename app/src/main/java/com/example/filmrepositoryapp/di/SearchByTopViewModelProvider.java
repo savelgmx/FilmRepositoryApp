@@ -5,7 +5,7 @@ package com.example.filmrepositoryapp.di;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.filmrepositoryapp.common.ViewModelCustomFactory;
+import com.example.filmrepositoryapp.ui.common.ViewModelCustomFactory;
 import com.example.filmrepositoryapp.ui.search.SearchByTopViewModel;
 
 import javax.inject.Inject;

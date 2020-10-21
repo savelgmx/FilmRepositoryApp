@@ -3,7 +3,7 @@ package com.example.filmrepositoryapp.di;
 import android.app.Application;
 
 
-import com.example.filmrepositoryapp.common.ViewModelCustomFactory;
+import com.example.filmrepositoryapp.ui.common.ViewModelCustomFactory;
 import com.example.filmrepositoryapp.model.FRepository;
 import com.example.filmrepositoryapp.model.FilmRepository;
 import com.google.gson.Gson;

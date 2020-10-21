@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.filmrepositoryapp.R;
-import com.example.filmrepositoryapp.common.BaseFragment;
-import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.ui.common.BaseFragment;
+import com.example.filmrepositoryapp.ui.common.BaseViewModel;
 import com.example.filmrepositoryapp.ui.filmDetail.FilmDetailDialogFragment;
 
 import javax.inject.Inject;

@@ -1,7 +1,7 @@
 package com.example.filmrepositoryapp.ui.filmList;
 
 
-import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.ui.common.BaseViewModel;
 import com.example.filmrepositoryapp.model.FRepository;
 import com.example.filmrepositoryapp.model.Film;
 import com.google.gson.Gson;

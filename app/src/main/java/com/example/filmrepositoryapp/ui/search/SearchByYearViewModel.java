@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.util.Pair;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.filmrepositoryapp.common.BaseViewModel;
+import com.example.filmrepositoryapp.ui.common.BaseViewModel;
 import com.example.filmrepositoryapp.model.FRepository;
 import com.google.gson.Gson;
 

@@ -1,4 +1,4 @@
-package com.example.filmrepositoryapp.common;
+package com.example.filmrepositoryapp.ui.common;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

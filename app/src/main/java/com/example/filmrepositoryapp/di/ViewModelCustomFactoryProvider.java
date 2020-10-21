@@ -1,7 +1,7 @@
 package com.example.filmrepositoryapp.di;
 
 
-import com.example.filmrepositoryapp.common.ViewModelCustomFactory;
+import com.example.filmrepositoryapp.ui.common.ViewModelCustomFactory;
 import com.example.filmrepositoryapp.model.FRepository;
 import com.google.gson.Gson;
 
