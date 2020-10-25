@@ -24,17 +24,3 @@ public class ApplicationModule extends Module {
 
 }
 
-/*
-extends Module {
-
-
-
-public ApplicationModule(Application application) {
-        this.mApplication = application;
-
-        bind(IFilmRepository.class).toInstance(new RealmFilmRepository());
-        bind(Gson.class).toInstance(new Gson());
-        bind(ViewModelCustomFactory.class).toProvider(ViewModelCustomFactoryProvider.class).providesSingletonInScope();
-        bind(Application.class).toInstance(mApplication);
-        }
-*/

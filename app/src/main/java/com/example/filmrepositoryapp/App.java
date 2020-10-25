@@ -9,6 +9,9 @@ import com.example.filmrepositoryapp.di.ApplicationModule;
 import io.realm.Realm;
 import toothpick.Scope;
 import toothpick.Toothpick;
+import toothpick.configuration.Configuration;
+import toothpick.registries.FactoryRegistryLocator;
+import toothpick.registries.MemberInjectorRegistryLocator;
 
 public class App extends Application {
 
@@ -18,14 +21,10 @@ public class App extends Application {
         super.onCreate();
         Realm.init(this);
 
-/*
         Toothpick.setConfiguration(Configuration.forProduction().disableReflection());
         Toothpick.setConfiguration(Configuration.forDevelopment().preventMultipleRootScopes());
-*/
-/*
         MemberInjectorRegistryLocator.setRootRegistry(new com.example.filmrepositoryapp.MemberInjectorRegistry());
         FactoryRegistryLocator.setRootRegistry(new com.example.filmrepositoryapp.FactoryRegistry());
-*/
         Scope scope = Toothpick.openScope("Application");
         scope.installModules(new ApplicationModule(this));
 
