@@ -1,5 +1,7 @@
 package com.example.filmrepositoryapp.model;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -65,7 +67,7 @@ public class FilmRepository implements FRepository {
             isSuccessful = true;
         }
         mRealm.commitTransaction();
-        //EventBus.getDefault().post(new OnFilmDataBaseUpdate());
+        EventBus.getDefault().post(new OnFilmDataBaseUpdate());
         return isSuccessful;
     }
 
@@ -81,7 +83,7 @@ public class FilmRepository implements FRepository {
         mRealm.beginTransaction();
         mRealm.copyToRealmOrUpdate(Film);
         mRealm.commitTransaction();
-        //EventBus.getDefault().post(new OnFilmDataBaseUpdate());
+        EventBus.getDefault().post(new OnFilmDataBaseUpdate());
     }
 
     private Film getFilmById(long id) {

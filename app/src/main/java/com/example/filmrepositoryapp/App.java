@@ -1,16 +1,14 @@
 package com.example.filmrepositoryapp;
 
 import android.app.Application;
-import android.content.res.Configuration;
 import android.widget.Toast;
 
 
+import com.example.filmrepositoryapp.di.ApplicationModule;
 
 import io.realm.Realm;
 import toothpick.Scope;
 import toothpick.Toothpick;
-import toothpick.registries.FactoryRegistryLocator;
-import toothpick.registries.MemberInjectorRegistryLocator;
 
 public class App extends Application {
 
