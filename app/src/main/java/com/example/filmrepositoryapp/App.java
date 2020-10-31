@@ -7,6 +7,7 @@ import android.widget.Toast;
 import com.example.filmrepositoryapp.di.ApplicationModule;
 
 import io.realm.Realm;
+import timber.log.Timber;
 import toothpick.Scope;
 import toothpick.Toothpick;
 import toothpick.configuration.Configuration;
@@ -29,6 +30,7 @@ public class App extends Application {
         scope.installModules(new ApplicationModule(this));
 
 
+        Timber.plant(new Timber.DebugTree());
 
         Toast.makeText(this, R.string.start_greeting, Toast.LENGTH_LONG).show();
     }

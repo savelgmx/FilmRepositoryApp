@@ -12,7 +12,7 @@ import toothpick.config.Module;
 
 public class ApplicationModule extends Module {
     private Application mApplication;
-    public ApplicationModule(App application) {
+    public ApplicationModule(Application application) {
         this.mApplication = application;
         bind(FRepository.class).toInstance(new FilmRepository());
         bind(Gson.class).toInstance(new Gson());
