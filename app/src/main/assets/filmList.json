@@ -1,16 +1,35 @@
 [
-  {"director":"Фрэнк Дарабонт","name":"Побег из Шоушенка","rating":9.3,"year":1994},
-  {"director":"Фрэнк Дарабонт","name":"Зеленая миля","rating":8.5,"year":1999},
-  {"director":"Роберт Земекис","name":"Форрест Гамп","rating":8.8,"year":1994},
-  {"director":"Стивен Спилберг","name":"Список Шиндлера","rating":8.9,"year":1993},
-  {"director":"Оливье Накаш","name":"1+1","rating":8.5,"year":2011},
-  {"director":"Люк Бессон","name":"Леон","rating":8.6,"year":1994},
-  {"director":"Кристофер Нолан","name":"Начало","rating":8.8,"year":2010},
-  {"director":"Леонид Гайдай","name":"Иван Васильевич меняет профессию","rating":8.4,"year":1973},
-  {"director":"Кристофер Нолан","name":"Интерстеллар","rating":8.6,"year":2014},
-  {"director":"Роберт Земекис","name":"Назад в будущее","rating":8.5,"year":1985},
-  {"director":"Алексей Балабанов","name":"Брат","rating":8.0,"year":1997},
-  {"director":"Алексей Балабанов","name":"Брат 2","rating":7.9,"year":2000},
-  {"director":"Алексей Балабанов","name":"Жмурки","rating":7.2,"year":2005}
+  {
+    "directors_name":"Фрэнк Дарабонт","film_name":"Побег из Шоушенка","rating":9.3,"release_date":1994,
+    "image_url": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg"
+  },
+  {
+    "directors_name":"Фрэнк Дарабонт","film_name":"Зеленая миля","rating":8.5,"release_date":1999,
+  "image_url": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_UX182_CR0,0,182,268_AL_.jpg"
+  },
+  {
+    "directors_name":"Роберт Земекис","film_name":"Форрест Гамп","rating":8.8,"release_date":1994,
+    "image_url": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
+  },
+  {"directors_name":"Стивен Спилберг","film_name":"Список Шиндлера","rating":8.9,"release_date":1993,
+    "image_url": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg"
+  },
+
+  {"directors_name":"Люк Бессон","film_name":"Леон","rating":8.6,"release_date":1994,
+  "image_url": "https://m.media-amazon.com/images/M/MV5BODllNWE0MmEtYjUwZi00ZjY3LThmNmQtZjZlMjI2YTZjYmQ0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+  },
+  {"directors_name":"Кристофер Нолан","film_name":"Интерстеллар","rating":8.6,"release_date":2014,
+  "image_url": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg"
+  },
+  {"directors_name":"Роберт Земекис","film_name":"Назад в будущее","rating":8.5,"release_date":1985,
+    "image_url": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+  },
+  {"directors_name":"Роберт Земекис","film_name":"Назад в будущее-II","rating":8.5,"release_date":1989,
+    "image_url": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+  },
+  {"directors_name":"Роберт Земекис","film_name":"Назад в будущее-III","rating":8.5,"release_date":1990,
+    "image_url": "https://m.media-amazon.com/images/M/MV5BYjhlMGYxNmMtOWFmMi00Y2M2LWE5NWYtZTdlMDRlMGEzMDA3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg"
+  }
+
 
 ]

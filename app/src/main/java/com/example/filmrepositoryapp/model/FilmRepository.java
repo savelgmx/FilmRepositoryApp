@@ -25,11 +25,9 @@ public class FilmRepository implements FRepository {
 
 
         mRealm = Realm.getDefaultInstance();
-        Number max = mRealm.where(Film.class).max("id");
-        currentId = max == null ? new AtomicLong(0) : new AtomicLong(max.longValue());
-
-        if (max != null) {
-            currentId.set(max.longValue());
+        Number number = mRealm.where(Film.class).max("id");
+        if (number != null) {
+            currentId.set(number.longValue());
         } else {
             currentId.set(0);
         }
@@ -41,7 +39,7 @@ public class FilmRepository implements FRepository {
         mRealm.beginTransaction();
         mRealm.copyToRealm(film);
         mRealm.commitTransaction();
-       // EventBus.getDefault().post(new OnFilmDataBaseUpdate());
+        EventBus.getDefault().post(new OnFilmDataBaseUpdate());
         return film.getId();
     }
 
