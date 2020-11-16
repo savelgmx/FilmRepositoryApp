@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="270dp"
         android:layout_margin="@dimen/margin">
 
         <TextView
@@ -18,78 +18,87 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/margin"
+            android:textColor="@color/colorBlack"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:text="Мег: Монстр глубины"
-            android:textColor="@color/colorBlack"/>
+            tools:text="Мег: Монстр глубины" />
 
         <TextView
             android:id="@+id/tvLabelYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvName"
-            android:layout_marginLeft="@dimen/margin"
             android:layout_marginStart="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
             android:text="Год выпуска:"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvYear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tvLabelYear"
-            android:layout_marginLeft="@dimen/margin"
             android:layout_marginStart="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
             android:layout_toEndOf="@+id/tvLabelYear"
             android:layout_toRightOf="@+id/tvLabelYear"
-            tools:text="2000"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            tools:text="2000" />
 
         <TextView
             android:id="@+id/tvLabelDirector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvLabelYear"
-            android:layout_marginLeft="@dimen/margin"
             android:layout_marginStart="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
             android:text="Режиссер:"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvDirector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/tvLabelDirector"
-            android:layout_marginLeft="@dimen/margin"
             android:layout_marginStart="@dimen/margin"
+            android:layout_marginLeft="@dimen/margin"
             android:layout_toEndOf="@+id/tvLabelDirector"
             android:layout_toRightOf="@+id/tvLabelDirector"
-            tools:text="Джон Тёртелтауб"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/colorBlack"
+            tools:text="Джон Тёртелтауб" />
 
         <TextView
+            android:id="@+id/tvLabelRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvLabelDirector"
-            android:text="Рейтинг:"
-            android:textStyle="bold"
-            android:id="@+id/tvLabelRate"
             android:layout_marginStart="@dimen/margin"
             android:layout_marginLeft="@dimen/margin"
-            android:textColor="@color/colorBlack"/>
+            android:text="Рейтинг:"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="5"
-            android:layout_toRightOf="@+id/tvLabelRate"
-            android:layout_toEndOf="@+id/tvLabelRate"
             android:layout_alignBottom="@+id/tvLabelRate"
-            android:layout_marginLeft="@dimen/margin"
             android:layout_marginStart="@dimen/margin"
-            android:textColor="@color/colorBlack"/>
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_toEndOf="@+id/tvLabelRate"
+            android:layout_toRightOf="@+id/tvLabelRate"
+            android:textColor="@color/colorBlack"
+            tools:text="5" />
+
+        <ImageView
+            android:id="@+id/imageURL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="11dp"
+            tools:srcCompat="@tools:sample/avatars"
+            tools:visibility="visible" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
