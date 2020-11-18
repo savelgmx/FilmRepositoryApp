@@ -78,6 +78,19 @@
             android:layout_below="@+id/tvRate"
             android:text="@{vm.rating}"
             />
+        <TextView
+            android:id="@+id/tvImageURL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etRate"
+            android:text="Image URL" />
+        <EditText
+            android:id="@+id/etImageURL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvImageURL"
+            android:text="@{vm.imageURL}"
+            />
 
     </RelativeLayout>
 </layout>

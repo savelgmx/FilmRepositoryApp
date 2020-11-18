@@ -45,16 +45,18 @@ public class FilmDetailDialogFragment extends DialogFragment {
 
     @BindView(R.id.etRate)
     protected EditText etRate;
+    @BindView(R.id.etImageURL)
+    protected EditText etImageURL;
 
 
     private DialogInterface.OnClickListener mOnClickListener = (dialogInterface, i) -> {
-/*
         mViewModel.apply(etName.getText().toString(),
                 etDirector.getText().toString(),
                 etYear.getText().toString(),
-                etRate.getText().toString());
+                etRate.getText().toString(),
+                etImageURL.getText().toString()
+        );
 
-*/
 
     };
 

@@ -17,6 +17,7 @@ public class FilmDetailViewModel extends BaseViewModel {
     private MutableLiveData<String> mDirector = new MutableLiveData<>();
     private MutableLiveData<String> mRating = new MutableLiveData<>();
     private MutableLiveData<Boolean> mIsSaved = new MutableLiveData<>();
+    private MutableLiveData<String> mImageURL = new MutableLiveData<>();
     private Long mFilmId;
     private int mTitleId;
 
@@ -38,6 +39,7 @@ public class FilmDetailViewModel extends BaseViewModel {
         mDirector.postValue(film.getDirectors_name());
         mYear.postValue(String.valueOf(film.getRelease_date()));
         mRating.postValue(String.valueOf(film.getRating()));
+        mImageURL.postValue(String.valueOf(film.getImageUrl()));
     }
 
     public MutableLiveData<String> getName() {
@@ -60,6 +62,8 @@ public class FilmDetailViewModel extends BaseViewModel {
     public MutableLiveData<String> getRating() {
         return mRating;
     }
+
+    public MutableLiveData<String> getImageURL(){return mImageURL;}
 
 
     public void apply(String name, String director, String year, String rating,String image_url) {
