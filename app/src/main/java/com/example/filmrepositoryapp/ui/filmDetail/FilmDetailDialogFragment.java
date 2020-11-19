@@ -114,6 +114,7 @@ public class FilmDetailDialogFragment extends DialogFragment {
         mViewModel.getDirector().observe(this, str -> etDirector.setText(str));
         mViewModel.getYear().observe(this, str -> etYear.setText(str));
         mViewModel.getRating().observe(this, str -> etRate.setText(str));
+        mViewModel.getImageURL().observe(this,str-> etImageURL.setText(str));
     }
 
 

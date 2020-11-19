@@ -7,6 +7,8 @@ import com.example.filmrepositoryapp.ui.common.BaseViewModel;
 import com.example.filmrepositoryapp.model.FRepository;
 import com.google.gson.Gson;
 
+import timber.log.Timber;
+
 
 public class SearchByTopViewModel extends BaseViewModel {
 
@@ -33,7 +35,7 @@ public class SearchByTopViewModel extends BaseViewModel {
         try {
             count = Integer.valueOf(mSearchByTopQuery.getValue());
         } catch (Throwable t) {
-           // Timber.d(t);
+            Timber.d(t);
         }
         mFilmList.postValue(mRepository.getTopFilms(count));
     }

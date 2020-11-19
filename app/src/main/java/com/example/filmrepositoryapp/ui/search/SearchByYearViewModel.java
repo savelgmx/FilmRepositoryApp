@@ -12,6 +12,8 @@ import com.google.gson.Gson;
 
 import java.util.regex.Pattern;
 
+import timber.log.Timber;
+
 
 public class SearchByYearViewModel extends BaseViewModel {
 
@@ -39,7 +41,7 @@ public class SearchByYearViewModel extends BaseViewModel {
             try {
                 startYear = Integer.valueOf(splitResult[0]);
             } catch (Throwable t) {
- //               Timber.d(t);
+                Timber.d(t);
                 startYear = 0;
             }
 
@@ -47,7 +49,7 @@ public class SearchByYearViewModel extends BaseViewModel {
                 try {
                     endYear = Integer.valueOf(splitResult[1]);
                 } catch (Throwable t) {
-   //                 Timber.d(t);
+                    Timber.d(t);
                     endYear = 0;
                 }
             }
@@ -55,10 +57,8 @@ public class SearchByYearViewModel extends BaseViewModel {
         if (endYear < startYear) {
             endYear = 0;
         }
-/*
         Timber.d("startYear: %d", startYear);
         Timber.d("endYear: %d", endYear);
-*/
         return new Pair<>(startYear, endYear);
     }
 

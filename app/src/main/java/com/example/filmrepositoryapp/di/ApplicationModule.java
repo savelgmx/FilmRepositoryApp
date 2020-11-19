@@ -2,7 +2,7 @@ package com.example.filmrepositoryapp.di;
 
 import android.app.Application;
 
-import com.example.filmrepositoryapp.App;
+
 import com.example.filmrepositoryapp.model.FRepository;
 import com.example.filmrepositoryapp.model.FilmRepository;
 import com.example.filmrepositoryapp.ui.common.ViewModelCustomFactory;
